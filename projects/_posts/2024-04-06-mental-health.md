@@ -2,7 +2,6 @@
 layout:     post
 title:      Mental Health Study
 categories: [projects]
-tags:       [projects]
 image: 
   path: /assets/img/mental-health/mental-health.png
 description: >
