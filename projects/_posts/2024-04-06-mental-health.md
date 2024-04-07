@@ -54,7 +54,7 @@ missing_values_count = df.isnull().sum()
 print(missing_values_count)
 ```
 
-    </td>
+</td>
     <td align="right">
       <img width="250" height="300" src="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png">
     </td>
@@ -74,7 +74,7 @@ missing_values_count = df.isnull().sum()
 print(missing_values_count)
 ```
 
-    </td>
+</td>
     <td align="right">
       <img width="250" height="300" src="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png">
     </td>
