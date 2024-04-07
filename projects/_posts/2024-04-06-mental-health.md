@@ -132,3 +132,21 @@ plt.show()
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/days_indoors_vs_occupation.png" alt="Days Indoors Behavior by Occupation" 
 title="Days Indoors Behavior by Occupation" 
 description="This shows consistency between all occupations across the board. It also shows 'housewives' are prone to mental health issues and are more likely to stay indoors." %}
+
+```python
+# Analyze the relationship between occupation and work interest
+work_interest_by_occupation = pd.crosstab(df['occupation'], df['work_interest'])
+
+# Visualize the relationship between occupation and work interest
+work_interest_by_occupation.plot(kind='bar', stacked=True, figsize=(10, 6))
+plt.title('Work Interest Behavior vs. Occupation')
+plt.xlabel('Occupation')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.legend(title='Work Interest')
+plt.show()
+```
+
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/work-interest-by-occupation.png" alt="Work Interest by Occupation" 
+title="Work Interest Behavior by Occupation" 
+description="This shows consistency between all occupations across the board. Surprisingly it shows, even with mental health issues, a lot of people still enjoy their work." %}
