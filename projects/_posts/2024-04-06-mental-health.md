@@ -69,3 +69,19 @@ print(missing_values_count)
 title="Pandas showing columns with zero missing values" 
 description="This shows that there are 0 rows with missing values in the self_employed column." %}
 
+The data is now clean but there is inconsistency with the column headings naming conventions. There are title case headings and lower case headings. To keep things consistent, I rename the column headings to all lower case.
+
+```python
+df = df.rename(columns={'Timestamp': 'timestamp', 
+                        'Gender': 'gender', 
+                        'Country': 'country', 
+                        'Occupation': 'occupation', 
+                        'Days_Indoors': 'days_indoors', 
+                        'Growing_Stress': 'growing_stress', 
+                        'Changes_Habits': 'changes_habits', 
+                        'Mental_Health_History': 'mh_history', 
+                        'Mood_Swings': 'mood_swings', 
+                        'Coping_Struggles': 'coping_struggles', 
+                        'Work_Interest': 'work_interest', 
+                        'Social_Weakness': 'social_weakness' })
+```
