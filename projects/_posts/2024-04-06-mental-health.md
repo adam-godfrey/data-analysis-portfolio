@@ -27,6 +27,13 @@ It is good practice to have a look at the data before any manipulation and clean
 
 ~~~python
 import pandas as pd
+import numpy as np
+from scipy import stats
+import seaborn as sns
+import matplotlib.pyplot as plt
+from matplotlib.axes._axes import _log as matplotlib_axes_logger
+matplotlib_axes_logger.setLevel('ERROR')
+import plotly.express as px
 
 # Specify the path of the CSV file to read
 filepath = "data/Mental Health Dataset.csv"
@@ -85,3 +92,24 @@ df = df.rename(columns={'Timestamp': 'timestamp',
                         'Work_Interest': 'work_interest', 
                         'Social_Weakness': 'social_weakness' })
 ```
+
+
+```python
+# Defining colors for the pie chart 
+colors = ['pink', 'steelblue'] 
+  
+# Define the ratio of gap of each fragment in a tuple 
+explode = (0.05, 0.05) 
+  
+# Plotting the pie chart for above dataframe 
+df.groupby(['gender'])['gender'].count().plot( 
+    kind='pie', y='gender', autopct='%1.0f%%', 
+  colors=colors, explode=explode)
+
+plt.axis('off')
+plt.show()
+plt.close()
+```
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png" alt="Pie chart showing gender distribution" 
+title="Pie chart showing gender distribution" 
+description="This shows that the distribution between males and females suffering with mental health is very far apart as males are 4 times more likely to suffer with mental health than females." %}
