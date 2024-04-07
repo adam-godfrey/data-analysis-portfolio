@@ -50,7 +50,7 @@ missing_values_count = df.isnull().sum()
 print(missing_values_count)
 ```
 
-{% include img-left-box.html path="/assets/img/mental-health/missing-values.png" alt="Pandas showing columns with missing values" 
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/missing-values.png" alt="Pandas showing columns with missing values" 
 title="Pandas showing columns with missing values" 
 description="This shows that there are 5202 rows with missing values in the self_employed column." %}
 
@@ -65,7 +65,7 @@ missing_values_count = df.isnull().sum()
 print(missing_values_count)
 ```
 
-{% include img-left-box.html path="/assets/img/mental-health/zero-missing-values.png" alt="Pandas showing columns with zero missing values" 
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png" alt="Pandas showing columns with zero missing values" 
 title="Pandas showing columns with zero missing values" 
 description="This shows that there are 0 rows with missing values in the self_employed column." %}
 
