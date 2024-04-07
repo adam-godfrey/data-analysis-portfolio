@@ -45,7 +45,7 @@ Pandas dataframe showing first 5 rows.
 
 <table class="rouge">
   <tbody>
-    <td width="100%" align="left" markdown="1">
+    <td align="left" markdown="1">
 
 ```python
 # Check for missing values in each column
@@ -63,7 +63,7 @@ print(missing_values_count)
 
 <table class="rouge">
   <tbody>
-    <td width="100%" align="left" markdown="1">
+    <td align="left" markdown="1">
 
 ```python
 # Drop rows with missing self_employed values
