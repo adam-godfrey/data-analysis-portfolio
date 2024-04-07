@@ -15,7 +15,7 @@
 
 .my-table {
     >*:first-child {
-	border: none;
+	border: none !important;
     }
     tbody {
 	tr {
@@ -24,7 +24,7 @@
 		border: none !important;
 
 		&:first-child { 
-		  width: calc(100% - 250px);
+		  width: calc(100% - 250px) !important;
 		  vertical-align:top;	
 		}
   	    }
