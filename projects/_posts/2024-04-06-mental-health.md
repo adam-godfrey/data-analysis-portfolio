@@ -74,6 +74,7 @@ print(missing_values_count)
 <table>
 <tbody>
 <td align="left">
+  
 ```python
 # Drop rows with missing self_employed values
 df = df.dropna(subset=['self_employed'])
@@ -82,6 +83,7 @@ missing_values_count = df.isnull().sum()
 # Print the count of missing values for each column
 print(missing_values_count)
 ```
+
 </td>
 <td align="right">
 <img width="250" height="300" src="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png">
