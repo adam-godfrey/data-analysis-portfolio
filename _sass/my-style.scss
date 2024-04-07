@@ -19,6 +19,11 @@
 	    td {
 		background: none;
 		border: none;
+
+		&:first-child {
+		    width: 100%;
+		    vertical-align:top	
+		}
   	    }
 	}
     }
