@@ -43,7 +43,7 @@ As you can see, we have some NAN values in the self_empoyed column.
 Pandas dataframe showing first 5 rows.
 {:.figure}
 
-<table class="rouge-table">
+<table class="my-table">
   <tbody>
     <td align="left" markdown="1">
 
@@ -61,7 +61,7 @@ print(missing_values_count)
   </tbody>
 </table>
 
-<table class="rouge-table">
+<table class="my-table">
   <tbody>
     <td align="left" markdown="1">
 
