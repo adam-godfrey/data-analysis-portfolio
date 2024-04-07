@@ -150,3 +150,21 @@ plt.show()
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/work-interest-by-occupation.png" alt="Work Interest by Occupation" 
 title="Work Interest Behavior by Occupation" 
 description="This shows consistency between all occupations across the board. Surprisingly it shows, even with mental health issues, a lot of people still enjoy their work." %}
+
+```python
+# Analyze the relationship between coping struggle and treatment
+coping_struggles_treatment = pd.crosstab(df['coping_struggles'], df['treatment'])
+
+# Visualize the relationship between coping struggles and treatment
+coping_struggles_treatment.plot(kind='bar', stacked=True, figsize=(10, 6))
+plt.title('Coping Struugles vs. Seeking Treatment')
+plt.xlabel('Coping Struggles')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.legend(title='Seeking Treatment')
+plt.show()
+```
+
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment.png" alt="Coping Struggles With Treatment" 
+title="Coping Struggles With Treatment" 
+description="This shows nearly an even split between people with coping struggles and another near even split for people who are seeking treatment." %}
