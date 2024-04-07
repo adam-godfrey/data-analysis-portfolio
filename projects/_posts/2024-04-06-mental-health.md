@@ -113,3 +113,22 @@ plt.close()
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png" alt="Pie chart showing gender distribution" 
 title="Pie chart showing gender distribution" 
 description="This shows that the distribution between males and females suffering with mental health is very far apart as males are 4 times more likely to suffer with mental health than females." %}
+
+```python
+# Analyze the relationship between days indoors and occupation
+days_indoors_by_occupation = pd.crosstab(df['days_indoors'], df['occupation'])
+
+# Visualize the relationship between days indoors and occupation
+days_indoors_by_occupation.plot(kind='bar', stacked=True, figsize=(10, 6))
+plt.title('Days Indoors Behavior by Occupation')
+plt.xlabel('Occupation')
+plt.ylabel('Proportion Staying Indoors')
+plt.legend(title='Occupation', labels=['Corporate', 'Student', 'Business', 'Housewife', 'Others'])
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/days_indoors_vs_occupation.png" alt="Days Indoors Behavior by Occupation" 
+title="Days Indoors Behavior by Occupation" 
+description="This shows consistency between all occupations across the board. It also shows 'housewives' are prone to mental health issues and are more likely to stay indoors." %}
