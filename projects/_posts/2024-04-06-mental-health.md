@@ -43,9 +43,9 @@ As you can see, we have some NAN values in the self_empoyed column.
 Pandas dataframe showing first 5 rows.
 {:.figure}
 
-<table>
+<table class="rouge">
   <tbody>
-    <td align="left" markdown="1">
+    <td width="100%" align="left" markdown="1">
 
 ```python
 # Check for missing values in each column
@@ -61,9 +61,9 @@ print(missing_values_count)
   </tbody>
 </table>
 
-<table>
+<table class="rouge">
   <tbody>
-    <td align="left" markdown="1">
+    <td width="100%" align="left" markdown="1">
 
 ```python
 # Drop rows with missing self_employed values
