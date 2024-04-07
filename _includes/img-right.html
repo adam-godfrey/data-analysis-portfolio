@@ -1,0 +1,14 @@
+<div>
+   <h3 ><center>{{ include.title }}</center></h3>
+</div>
+<div class="cf">
+  <div style="float: right; margin-left: 1em;">
+    <img src="{{ include.path }}" alt="{{ include.alt }}" width="600px" />
+    <br/><br/>
+  </div>
+  <div>
+    {{ include.description | markdownify }}
+    <br/><br/>
+  </div>
+</div>
+
