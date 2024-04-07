@@ -17,11 +17,11 @@
     tbody {
 	tr {
 	    td {
-		background: none;
-		border: none;
+		background: none !important;
+		border: none !important;
 
 		&:first-child {
-		    width: 100%;
+		    width: calc(100% - 250px);
 		    vertical-align:top	
 		}
   	    }
