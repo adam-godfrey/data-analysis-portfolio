@@ -43,24 +43,24 @@ As you can see, we have some NAN values in the self_empoyed column.
 Pandas dataframe showing first 5 rows.
 {:.figure}
 
-~~~python
+```python
 # Check for missing values in each column
 missing_values_count = df.isnull().sum()
 # Print the count of missing values for each column
 print(missing_values_count)
-~~~
+```
 <img align="center" width="250" height="300" src="/data-analysis-portfolio/assets/img/mental-health/missing-values.png">
 5202 missing value counts.
 {:.figure}
 
-~~~python
+```python
 # Drop rows with missing self_employed values
 df = df.dropna(subset=['self_employed'])
 # Check for missing values in each column
 missing_values_count = df.isnull().sum()
 # Print the count of missing values for each column
 print(missing_values_count)
-~~~
+```
 <img align="center" width="250" height="300" src="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png">
 0 missing value counts.
 {:.figure}
