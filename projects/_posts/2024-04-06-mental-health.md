@@ -114,6 +114,8 @@ plt.close()
 title="Pie chart showing gender distribution" 
 description="This shows that the distribution between males and females suffering with mental health is very far apart as males are 4 times more likely to suffer with mental health than females." %}
 
+ It also shows 'housewives' are prone to mental health issues and are more likely to stay indoors.
+
 ```python
 # Analyze the relationship between days indoors and occupation
 days_indoors_by_occupation = pd.crosstab(df['days_indoors'], df['occupation'])
@@ -131,7 +133,10 @@ plt.show()
 
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/days_indoors_vs_occupation.png" alt="Days Indoors Behavior by Occupation" 
 title="Days Indoors Behavior by Occupation" 
-description="This shows consistency between all occupations across the board. It also shows 'housewives' are prone to mental health issues and are more likely to stay indoors." %}
+description="This shows consistency between all occupations across the board." %}
+
+ Surprisingly it shows, even with mental health issues, a lot of people still enjoy their work.
+
 
 ```python
 # Analyze the relationship between occupation and work interest
@@ -149,7 +154,7 @@ plt.show()
 
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/work-interest-by-occupation.png" alt="Work Interest by Occupation" 
 title="Work Interest Behavior by Occupation" 
-description="This shows consistency between all occupations across the board. Surprisingly it shows, even with mental health issues, a lot of people still enjoy their work." %}
+description="This shows consistency between all occupations across the board." %}
 
 ```python
 # Analyze the relationship between coping struggle and treatment
@@ -168,3 +173,41 @@ plt.show()
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment.png" alt="Coping Struggles With Treatment" 
 title="Coping Struggles With Treatment" 
 description="This shows nearly an even split between people with coping struggles and another near even split for people who are seeking treatment." %}
+
+
+ It's surprising that a lot of people dopn't have social weakness but h
+```python
+# Analyze the relationship between social weakness and mental health history
+social_weakness_by_gender = pd.crosstab(df['social_weakness'], df['mental_health_history'])
+
+# Visualize the relationship between social weakness and mental health history
+social_weakness_by_gender.plot(kind='bar', stacked=True, figsize=(10, 6))
+plt.title('Social Weakness vs. Mental Health History')
+plt.xlabel('Social Weakness')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.legend(title='Mental Health History')
+plt.show()
+```
+
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/social-weakness.png" alt="Social Weakness by Mental Health History" 
+title="Social Weakness by Mental Health History" 
+description="This shows there is nearly an even spread for social weakness and the person having mental health history." %}
+
+```python
+# Analyze the relationship between social weakness and mental health history
+mood_swings_with_treatment = pd.crosstab(df['mood_swings'], df['treatment'])
+
+# Visualize the relationship between social weakness and mental health history
+mood_swings_with_treatment.plot(kind='bar', stacked=True, figsize=(10, 6))
+plt.title('Mood Swings vs. Treatment')
+plt.xlabel('Mood Swings')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.legend(title='Treatment')
+plt.show()
+```
+
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/mood-swings-treatment.png" alt="Mood Swings by Treatment" 
+title="Mood Swings by Treatment" 
+description="This shows if there is a possible link to mood swings with treatment." %}
