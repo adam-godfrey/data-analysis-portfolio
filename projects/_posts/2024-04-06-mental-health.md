@@ -49,7 +49,7 @@ missing_values_count = df.isnull().sum()
 # Print the count of missing values for each column
 print(missing_values_count)
 ~~~
-<img align="right" width="250" height="300" src="/assets/img/mental-health/missing-values.png">
+<img align="right" width="250" height="300" src="/data-analysis-portfolio/assets/img/mental-health/missing-values.png">
 5202 missing value counts.
 {:.figure}
 
@@ -61,6 +61,6 @@ missing_values_count = df.isnull().sum()
 # Print the count of missing values for each column
 print(missing_values_count)
 ~~~
-<img align="right" width="250" height="300" src="/assets/img/mental-health/zero-missing-values.png">
+<img align="right" width="250" height="300" src="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png">
 0 missing value counts.
 {:.figure}
