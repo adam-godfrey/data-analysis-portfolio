@@ -25,11 +25,9 @@
 
 		&:first-child { 
 		  width: calc(100% - 250px);
-		  vertical-align:top  	
+		  vertical-align:top;	
 		}
   	    }
 	}
     }
 }
-
-table:not(.rouge-table)
