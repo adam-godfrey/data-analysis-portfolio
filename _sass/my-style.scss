@@ -12,3 +12,14 @@
     margin: 1rem 0;
   }
 }
+
+.my-table {
+    tbody {
+	tr {
+	    td {
+		background: none;
+		border: none;
+  	    }
+	}
+    }
+}
