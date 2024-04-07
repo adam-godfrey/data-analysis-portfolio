@@ -14,17 +14,22 @@
 }
 
 .my-table {
+    >*:first-child {
+	border: none;
+    }
     tbody {
 	tr {
 	    td {
 		background: none !important;
 		border: none !important;
 
-		&:first-child {
-		    width: calc(100% - 250px);
-		    vertical-align:top	
+		&:first-child { 
+		  width: calc(100% - 250px);
+		  vertical-align:top  	
 		}
   	    }
 	}
     }
 }
+
+table:not(.rouge-table)
