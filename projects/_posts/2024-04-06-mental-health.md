@@ -49,6 +49,18 @@ missing_values_count = df.isnull().sum()
 # Print the count of missing values for each column
 print(missing_values_count)
 ~~~
-<img align="left" width="250" height="300" src="/assets/img/mental-health/missing-values.png">
+<img align="right" width="250" height="300" src="/assets/img/mental-health/missing-values.png">
 5202 missing value counts.
+{:.figure}
+
+~~~python
+# Drop rows with missing self_employed values
+df = df.dropna(subset=['self_employed'])
+# Check for missing values in each column
+missing_values_count = df.isnull().sum()
+# Print the count of missing values for each column
+print(missing_values_count)
+~~~
+<img align="right" width="250" height="300" src="/assets/img/mental-health/zero-missing-values.png">
+0 missing value counts.
 {:.figure}
