@@ -10,19 +10,19 @@ hide_description: true
 sitemap: false
 permalink: /projects/2023-04-06-mental-health/
 ---
+# Mental health study and behaviours
 
-# Introduction
+## Introduction
 
 Welcome to my first project published on my portfolio website! Having been learning data analysis, I decided to use my skills to learn about a topic that is very important to both myself but the Unitied Kingdom iteslf especially in the wake of the Covid 19 pandamic. The mental health of people around the world.
 
 As we all know from the months of isolation and the massive changes the world has overcome, this can have a negative impact on a person's mental health. Although the data I have used in my findings were pre Covid, I still wanted to studay how mental health affects the daily lives of people suffering with mental health issues.
 
-# Data Preparation
+## Data Preparation
 
-## Data Source
-**Mental health dataset** The dataset about mental health was collected from [kaggleh.com](https://www.kaggle.com/datasets/bhavikjikadara/mental-health-dataset "Your home for data science") and was downloaded on 2024-04-04.
-
-## Data
+### Data Source
+**Mental health dataset** The dataset about mental health was collected from [kaggle.com](https://www.kaggle.com/datasets/bhavikjikadara/mental-health-dataset "Your home for data science") and was downloaded on 2024-04-04.
+### Data
 It is good practice to have a look at the data before any manipulation and cleaning to get an idea of what the structure of the data looks like. As we can see, there are some missing values in the data which could potentially skew the results we are looking for.
 
 ~~~python
@@ -41,4 +41,14 @@ As you can see, we have some NAN values in the self_empoyed column.
 
 ![Pandas dataframe showing first 5 rows](/assets/img/mental-health/pandas-head.png "Pandas dataframe showing first 5 rows")
 Pandas dataframe showing first 5 rows.
+{:.figure}
+
+~~~python
+# Check for missing values in each column
+missing_values_count = df.isnull().sum()
+# Print the count of missing values for each column
+print(missing_values_count)
+~~~
+<img align="left" width="250" height="300" src="/assets/img/meantal-health/missing-values.png">
+5202 missing value counts.
 {:.figure}
