@@ -43,9 +43,7 @@ As you can see, we have some NAN values in the self_empoyed column.
 Pandas dataframe showing first 5 rows.
 {:.figure}
 
-<table class="my-table">
-  <tbody>
-    <td align="left" markdown="1">
+I first find out how many missing values are in each column.
 
 ```python
 # Check for missing values in each column
@@ -54,16 +52,11 @@ missing_values_count = df.isnull().sum()
 print(missing_values_count)
 ```
 
-</td>
-    <td align="right">
-      <img width="250" height="300" src="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png">
-    </td>
-  </tbody>
-</table>
+![Pandas showing columns with missing values](/assets/img/mental-health/missing-values.png "Pandas showing columns with missing values")
+Pandas showing columns with missing values.
+{:.figure}
 
-<table class="my-table">
-  <tbody>
-    <td align="left" markdown="1">
+I drop any rows which have empty values and do the check again. This clearly shows the rows have been removed.
 
 ```python
 # Drop rows with missing self_employed values
@@ -74,9 +67,6 @@ missing_values_count = df.isnull().sum()
 print(missing_values_count)
 ```
 
-</td>
-    <td align="right">
-      <img width="250" height="300" src="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png">
-    </td>
-  </tbody>
-</table>
+![Pandas showing columns with no missing values](/assets/img/mental-health/zero-missing-values.png "Pandas showing columns with no missing values")
+Pandas showing columns with no missing values.
+{:.figure}
