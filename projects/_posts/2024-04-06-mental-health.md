@@ -48,7 +48,7 @@ df.head()
 ```
 </div>
 </details>
-<br/><br/>
+<br/>
 
 As you can see, we have some NAN values in the self_empoyed column.
 
@@ -87,7 +87,7 @@ print(missing_values_count)
 ```
 </div>
 </details>
-<br/><br/>
+<br/>
 
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png" alt="Pandas showing columns with zero missing values" 
 title="Pandas showing columns with zero missing values" 
@@ -114,33 +114,112 @@ df = df.rename(columns={'Timestamp': 'timestamp',
 ```
 </div>
 </details>
-<br/><br/>
+<br/>
+
+## Data Visualisations
+
+### Distribution of Gender
+I first wanted to find out the distribution of gender taking part in the survery.
+
+This shows that the distribution between males and females suffering with mental health is very far apart. 
+
+Is there is an even split between males and feamles taking part in the survey?
+
+If this is the case then males are 4 times more likely to suffer with mental health than females.
+
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png" alt="Pie chart showing gender distribution" 
+title="Pie chart showing gender distribution" %}
+
 <details>
 <summary>Expand to see code used</summary>
 <div markdown="1">
 ```python
 # Defining colors for the pie chart 
 colors = ['pink', 'steelblue'] 
+labels = ['Female', 'Male']
   
 # Define the ratio of gap of each fragment in a tuple 
 explode = (0.05, 0.05) 
-  
-# Plotting the pie chart for above dataframe 
-df.groupby(['gender'])['gender'].count().plot( 
-    kind='pie', y='gender', autopct='%1.0f%%', 
-  colors=colors, explode=explode)
+
+# Plotting the pie chart for dataframe 
+genders = df.groupby(['gender'])['gender'].count()
+
+# set the fig size for the titles
+fig, ax = plt.subplots(1, 1 ,figsize=(4, 4))
+ax.pie(genders, colors=colors, explode=explode, labels=labels, autopct='%1.0f%%')
+
+fig.text(0,1.03,'Distribution of Gender', fontfamily='serif', fontsize=18, fontweight='bold')
+fig.text(0,0.92,'We see vastly more males than females completing survery.', fontfamily='serif', fontsize=12) 
 
 plt.axis('off')
+fig.tight_layout()
 plt.show()
 plt.close()
 ```
 </div>
 </details>
-<br/><br/>
+<br/>
 
-{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png" alt="Pie chart showing gender distribution" 
-title="Pie chart showing gender distribution" 
-description="This shows that the distribution between males and females suffering with mental health is very far apart as males are 4 times more likely to suffer with mental health than females." %}
+## Individuals Seeking Treatment by Gender
+From the first chart below, we can see that individuals in both genders are about 5x more likely seek treatment.
+
+In the second chart, we can see that males are 4x more likely to not seek treatment compared to females and there is a near even spliot between both genders seeking treatment;.
+
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/treatment-by-gender.png" alt="Individuals seeking treatment by gender" 
+title="Individuals seeking treatment by gender" %}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# get counts by gender and if they are seeking treatment
+treatment_by_gender = df.groupby(['gender', 'treatment'])['treatment'].count().unstack()
+# get a propotion based on the above results
+treatment_by_gender_proportion = treatment_by_gender.div(treatment_by_gender.sum(1), axis=0)
+
+# chart settings
+groups = ['No', 'Yes']
+colors = ['pink', 'steelblue'] 
+labels = ['Female', 'Male']
+
+# set the fig size for the titles
+fig, (ax1, ax2) = plt.subplots(1, 2 ,figsize=(10, 4))
+
+# create a stacked bar on the left for counts
+ax1.bar(groups, treatment_by_gender.No.values, color=colors[0])
+ax1.bar(groups, treatment_by_gender.Yes.values, bottom = treatment_by_gender.No.values, color=colors[1])
+
+# create a stacked bar on the right for proportion
+ax2.bar(groups, treatment_by_gender_proportion.No, color=colors[0])
+ax2.bar(groups, treatment_by_gender_proportion.Yes, bottom = treatment_by_gender_proportion.No, color=colors[1])
+
+# treatment_by_gender.plot(kind='bar', stacked=True, color=colors)
+fig.text(0,1.03,'Individuals Seeking Treatment By Gender', fontfamily='serif', fontsize=18, fontweight='bold')
+fig.text(0,0.92,'We see a vast majority of both males and females seeking treatment.', fontfamily='serif', fontsize=12)
+# common axis labels
+fig.supxlabel('Individuals Seeking Treatment')
+fig.supylabel('Count')
+
+# set the location of the legend
+ax1.legend(title='Gender', labels=labels, loc='upper left')
+
+# Remove the top and right spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+plt.ylabel('Proportion')
+plt.show()
+plt.close()
+```
+</div>
+</details>
+<br/>
+
+
+
+
 
  It also shows 'housewives' are prone to mental health issues and are more likely to stay indoors.
 
