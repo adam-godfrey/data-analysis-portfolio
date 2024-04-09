@@ -48,6 +48,7 @@ df.head()
 ```
 </div>
 </details>
+<br/><br/>
 
 As you can see, we have some NAN values in the self_empoyed column.
 
@@ -73,6 +74,9 @@ description="This shows that there are 5202 rows with missing values in the self
 
 I drop any rows which have empty values and do the check again. This clearly shows the rows have been removed.
 
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
 ```python
 # Drop rows with missing self_employed values
 df = df.dropna(subset=['self_employed'])
@@ -81,6 +85,9 @@ missing_values_count = df.isnull().sum()
 # Print the count of missing values for each column
 print(missing_values_count)
 ```
+</div>
+</details>
+<br/><br/>
 
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/zero-missing-values.png" alt="Pandas showing columns with zero missing values" 
 title="Pandas showing columns with zero missing values" 
@@ -88,6 +95,9 @@ description="This shows that there are 0 rows with missing values in the self_em
 
 The data is now clean but there is inconsistency with the column headings naming conventions. There are title case headings and lower case headings. To keep things consistent, I rename the column headings to all lower case.
 
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
 ```python
 df = df.rename(columns={'Timestamp': 'timestamp', 
                         'Gender': 'gender', 
@@ -102,8 +112,12 @@ df = df.rename(columns={'Timestamp': 'timestamp',
                         'Work_Interest': 'work_interest', 
                         'Social_Weakness': 'social_weakness' })
 ```
-
-
+</div>
+</details>
+<br/><br/>
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
 ```python
 # Defining colors for the pie chart 
 colors = ['pink', 'steelblue'] 
@@ -120,6 +134,10 @@ plt.axis('off')
 plt.show()
 plt.close()
 ```
+</div>
+</details>
+<br/><br/>
+
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png" alt="Pie chart showing gender distribution" 
 title="Pie chart showing gender distribution" 
 description="This shows that the distribution between males and females suffering with mental health is very far apart as males are 4 times more likely to suffer with mental health than females." %}
