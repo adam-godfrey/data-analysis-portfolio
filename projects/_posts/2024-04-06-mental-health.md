@@ -127,6 +127,11 @@ Is there is an even split between males and feamles taking part in the survey?
 
 If this is the case then males are 4 times more likely to suffer with mental health than females.
 
+![Full-width image](data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png){:.lead width="800" loading="lazy"}
+
+A caption for an image.
+{:.figcaption}
+
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png" alt="Pie chart showing gender distribution" 
 title="Pie chart showing gender distribution" %}
 
@@ -163,7 +168,7 @@ plt.close()
 ## Individuals Seeking Treatment by Gender
 From the first chart below, we can see that individuals in both genders are about 5x more likely seek treatment.
 
-In the second chart, we can see that males are 4x more likely to not seek treatment compared to females and there is a near even spliot between both genders seeking treatment;.
+In the second chart, we can see that males are 4x more likely to not seek treatment compared to females and there is a near even split between both genders seeking treatment;.
 
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/treatment-by-gender.png" alt="Individuals seeking treatment by gender" 
 title="Individuals seeking treatment by gender" %}
