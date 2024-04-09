@@ -25,7 +25,10 @@ As we all know from the months of isolation and the massive changes the world ha
 ### Data
 It is good practice to have a look at the data before any manipulation and cleaning to get an idea of what the structure of the data looks like. As we can see, there are some missing values in the data which could potentially skew the results we are looking for.
 
-~~~python
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
 import pandas as pd
 import numpy as np
 from scipy import stats
@@ -42,7 +45,9 @@ filepath = "data/Mental Health Dataset.csv"
 df = pd.read_csv(filepath, parse_dates=['Timestamp'])
 
 df.head()
-~~~
+```
+</div>
+</details>
 
 As you can see, we have some NAN values in the self_empoyed column.
 
@@ -50,12 +55,17 @@ As you can see, we have some NAN values in the self_empoyed column.
 
 I first find out how many missing values are in each column.
 
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
 ```python
 # Check for missing values in each column
 missing_values_count = df.isnull().sum()
 # Print the count of missing values for each column
 print(missing_values_count)
 ```
+</div>
+</details>
 
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/missing-values.png" alt="Pandas showing columns with missing values" 
 title="Pandas showing columns with missing values" 
@@ -210,4 +220,22 @@ plt.show()
 
 {% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/mood-swings-treatment.png" alt="Mood Swings by Treatment" 
 title="Mood Swings by Treatment" 
+description="This shows if there is a possible link to mood swings with treatment." %}
+
+```python
+# Analyze the relationship between social weakness and mental health history
+growing_stress_with_chaing_habits = pd.crosstab(df['growing_stress'], df['changes_habits'])
+
+# Visualize the relationship between social weakness and mental health history
+growing_stress_with_chaing_habits.plot(kind='bar', stacked=True, figsize=(10, 6))
+plt.title('Growing Stress vs. Changes Habits')
+plt.xlabel('Growing Stress')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.legend(title='Changes Habits')
+plt.show()
+```
+
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/growing-stress-change-habits.png" alt="Growing Stress by Changing Habits" 
+title="Growing Stress by Changing Habits" 
 description="This shows if there is a possible link to mood swings with treatment." %}
