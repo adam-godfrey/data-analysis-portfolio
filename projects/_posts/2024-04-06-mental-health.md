@@ -12,6 +12,9 @@ permalink: /projects/2023-04-06-mental-health/
 ---
 # Mental health study and behaviours
 
+* this unordered seed list will be replaced by the toc
+{:toc}
+
 ## Introduction
 
 Welcome to my first project published on my portfolio website! Having been learning data analysis, I decided to use my skills to learn about a topic that is very important to both myself but the Unitied Kingdom iteslf especially in the wake of the Covid 19 pandamic. The mental health of people around the world.
@@ -312,7 +315,7 @@ for i, c in enumerate(ax.containers):
     ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # set the location of the legend
-ax.legend(title='Work Interest', labels=legend, loc='upper right')
+ax.legend(title='Occupation', labels=legend, loc='upper right')
 
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
