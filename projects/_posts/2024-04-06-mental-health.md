@@ -277,7 +277,7 @@ plt.close()
 </details>
 <br/>
 
-### Staying Indoors by Occupation
+### Number of Days Indoors by Occupation
 I also wanted to find out the distribution of gender from each country taking part in the survery. 
 
 From the following chart, I was able to see that the majority of individuals completing the survery was from the United States with 168,056 and United Kingdom with 50,624.
@@ -286,7 +286,7 @@ Most of the other countries were around a few hundred or few thousand with the e
 
 From this information, it made me curious as to why the United States and United Kingdom have the vastly the highest amounts in the world. What I found interesting is the amount in the United Kingdom. For such a small country compared to the majority of other countries, there was a high percentage. 
 
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/days_indoors_vs_occupation.png){:.centered loading="lazy"}
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/days-indoors-by-occupation.png){:.centered loading="lazy"}
 
 Chart showing number of individuals days indoors by their occupation.
 {:.figcaption}
