@@ -276,3 +276,48 @@ plt.close()
 </div>
 </details>
 <br/>
+
+### Staying Indoors by Occupation
+I also wanted to find out the distribution of gender from each country taking part in the survery. 
+
+From the following chart, I was able to see that the majority of individuals completing the survery was from the United States with 168,056 and United Kingdom with 50,624.
+
+Most of the other countries were around a few hundred or few thousand with the exception of Canada.
+
+From this information, it made me curious as to why the United States and United Kingdom have the vastly the highest amounts in the world. What I found interesting is the amount in the United Kingdom. For such a small country compared to the majority of other countries, there was a high percentage. 
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/staying-indoors-by-occupation.png){:.centered loading="lazy"}
+
+Chart showing number of individuals staying indoors by their occupation.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# get counts by number of days indoors vs occupation
+days_indoors_by_occupation = df.groupby(['days_indoors', 'occupation'])['occupation'].count().unstack()
+
+# chart settings
+legend = ['Corporate', 'Student', 'Business', 'Housewife', 'Others']
+colors = ['red', 'yellow', 'limegreen', 'dodgerblue', 'rebeccapurple']
+label_colors = ['white', 'black', 'black', 'white', 'white']
+
+ax = days_indoors_by_occupation.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Number of days indoors', ylabel='Count', color=colors)
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Work Interest', labels=legend, loc='upper right')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+```
+</div>
+</details>
+<br/>
