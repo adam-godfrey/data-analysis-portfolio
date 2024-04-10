@@ -215,6 +215,69 @@ plt.close()
 </details>
 <br/>
 
+### Distribution of Country
+I also wanted to find out the distribution of gender from each country taking part in the survery. 
+
+From the following chart, I was able to see that the majority of individuals completing the survery was from the United States with 168,056 and United Kingdom with 50,624.
+
+Most of the other countries were around a few hundred or few thousand with the exception of Canada.
+
+From this information, it made me curious as to why the United States and United Kingdom have the vastly the highest amounts in the world. What I found interesting is the amount in the United Kingdom. For such a small country compared to the majority of other countries, there was a high percentage. 
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/gender-by-country.png){:.centered loading="lazy"}
+
+Gender distribution by country.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python`
+# get counts by gender and country
+# replace any possible NaNs with zero
+gender_by_country = df.groupby(['country', 'gender'])['country'].count().unstack().fillna(0)
+
+# chart settings
+colors = ['pink', 'steelblue'] 
+labels = ['Female', 'Male']
+
+# set the fig size for the titles
+fig, ax = plt.subplots(1, 1 ,figsize=(10, 10))
+bottom = np.zeros(len(gender_by_country))
+
+# create the bars for each country
+for i, col in enumerate(gender_by_country.columns):
+  p = ax.barh(gender_by_country.index, gender_by_country[col], left=bottom, label=col,
+         color=colors[i])
+  bottom += np.array(gender_by_country[col])
+
+# Sum up the rows of our data to get the total value of each bar.
+totals = gender_by_country.sum(axis=1)
+# Set an offset that is used to bump the label up a bit above the bar.
+y_offset = 4
+
+# Add labels to each bar.
+for i, total in enumerate(totals):
+  ax.bar_label(p, label_type='edge', fontweight='ultralight')
+
+# treatment_by_gender.plot(kind='bar', stacked=True, color=colors)
+fig.text(0,1.03,'Individuals By Gender From Each Country', fontfamily='serif', fontsize=18, fontweight='bold')
+fig.text(0,0.92,'We see the vast majority of individuals gtom the United Kingdom and United States.', fontfamily='serif', fontsize=12)
+
+# set the location of the legend
+ax.legend(title='Gender', labels=labels, loc='center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+plt.show()
+plt.close()
+````
+</div>
+</details>
+<br/>
+
+
 
 
 
