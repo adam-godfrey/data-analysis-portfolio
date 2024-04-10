@@ -286,9 +286,9 @@ Most of the other countries were around a few hundred or few thousand with the e
 
 From this information, it made me curious as to why the United States and United Kingdom have the vastly the highest amounts in the world. What I found interesting is the amount in the United Kingdom. For such a small country compared to the majority of other countries, there was a high percentage. 
 
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/staying-indoors-by-occupation.png){:.centered loading="lazy"}
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/days-indoors-by-occupation.png){:.centered loading="lazy"}
 
-Chart showing number of individuals staying indoors by their occupation.
+Chart showing number of individuals days indoors by their occupation.
 {:.figcaption}
 
 <details>
@@ -466,7 +466,7 @@ ax5.legend(title='Others', labels=genders, loc='upper right')
 
 # title
 ax5.set_title('Others')
-for i, c in enumerate(ax4.containers):
+for i, c in enumerate(ax5.containers):
     # Optional: if the segment is small or 0, customize the labels
     labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
     # remove the labels parameter if it's not needed for customized labels
