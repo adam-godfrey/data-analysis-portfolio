@@ -163,8 +163,10 @@ From the first chart below, we can see that individuals in both genders are abou
 
 In the second chart, we can see that males are 4x more likely to not seek treatment compared to females and there is a near even split between both genders seeking treatment;.
 
-{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/treatment-by-gender.png" alt="Individuals seeking treatment by gender" 
-title="Individuals seeking treatment by gender" %}
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individuals seeking treatment by gender.
+{:.figcaption}
 
 <details>
 <summary>Expand to see code used</summary>
@@ -226,13 +228,13 @@ From this information, it made me curious as to why the United States and United
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/gender-by-country.png){:.centered loading="lazy"}
 
-Gender distribution by country.
+Chart showing gender distribution by country.
 {:.figcaption}
 
 <details>
 <summary>Expand to see code used</summary>
 <div markdown="1">
-```python`
+```python
 # get counts by gender and country
 # replace any possible NaNs with zero
 gender_by_country = df.groupby(['country', 'gender'])['country'].count().unstack().fillna(0)
