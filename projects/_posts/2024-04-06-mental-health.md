@@ -119,21 +119,14 @@ df = df.rename(columns={'Timestamp': 'timestamp',
 ## Data Visualisations
 
 ### Distribution of Gender
-I first wanted to find out the distribution of gender taking part in the survery.
+I first wanted to find out the distribution of gender taking part in the survery. 
 
-This shows that the distribution between males and females suffering with mental health is very far apart. 
+From the following chart, I was able to see that the distribution was heavily led to males and it shows males are 4 times more likely to suffer with mental health than females. Could this be because males are more likely to suffer with mental health than feamles OR are females more reluctant to complete the survey?
 
-Is there is an even split between males and feamles taking part in the survey?
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png){:.centered loading="lazy"}
 
-If this is the case then males are 4 times more likely to suffer with mental health than females.
-
-![Full-width image](data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png){:.lead width="800" loading="lazy"}
-
-A caption for an image.
+Pie chart showing gender distribution.
 {:.figcaption}
-
-{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/gender-pie-chart.png" alt="Pie chart showing gender distribution" 
-title="Pie chart showing gender distribution" %}
 
 <details>
 <summary>Expand to see code used</summary>
