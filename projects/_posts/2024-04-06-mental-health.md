@@ -321,3 +321,169 @@ ax.spines['right'].set_visible(False)
 </div>
 </details>
 <br/>
+
+### Staying Indoors by Occupation and Gender Distribution
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/staying-indoors-by-occupation-breakdown.png){:.centered loading="lazy"}
+
+Chart showing number of individuals staying indoors by their occupation and gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# function to take in a dataframe and split the occupation into separate groups
+def occupation_groups(df):
+    # get a list of unique occupations
+    occupations = df['occupation'].unique()
+    
+    # create an empty dictionary to hold the new groups
+    occupation_group = {}
+
+    # loop over the unique occupations and greate a group for each
+    for occupation in occupations:
+        occupation_group[occupation] = df[df['occupation'] == occupation].groupby(['days_indoors', 'gender'])['occupation'].count().unstack().fillna(0)
+    
+    return occupation_group
+
+occupation_grps = occupation_groups(df)
+
+# chart settings
+groups = df['days_indoors'].unique()
+colors = ['pink', 'steelblue'] 
+genders = ['Female', 'Male']
+label_colors = ['black', 'white']
+
+# set the fig size for the titles
+fig, ((ax1, ax2), (ax3, ax4), (ax5, ax6)) = plt.subplots(3, 2 ,figsize=(10, 16))
+
+# hide this one as it doesn't exist
+ax6.set_visible(False)
+
+# create a stacked bar for Corporate occupation
+ax1.bar(groups, occupation_grps['Corporate'].Female.values, color=colors[0])
+ax1.bar(groups, occupation_grps['Corporate'].Male.values, bottom = occupation_grps['Corporate'].Female.values, color=colors[1])
+
+# set the location of the legend
+ax1.legend(title='Gender', labels=genders, loc='upper right')
+
+# title
+ax1.set_title('Corporate')
+for i, c in enumerate(ax1.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# rotation of xlabels
+for label in ax1.get_xticklabels():
+  label.set_rotation(45)
+  label.set_ha('right')
+    
+# Remove the top and right spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+# create a stacked bar for Students occupation
+ax2.bar(groups, occupation_grps['Student'].Female.values, color=colors[0])
+ax2.bar(groups, occupation_grps['Student'].Male.values, bottom = occupation_grps['Student'].Female.values, color=colors[1])
+
+# set the location of the legend
+ax2.legend(title='Gender', labels=genders, loc='upper right')
+
+# title
+ax2.set_title('Student')
+for i, c in enumerate(ax2.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# rotation of xlabels
+for label in ax2.get_xticklabels():
+  label.set_rotation(45)
+  label.set_ha('right')
+    
+# Remove the top and right spines
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+# create a stacked bar for Corporate occupation
+ax3.bar(groups, occupation_grps['Business'].Female.values, color=colors[0])
+ax3.bar(groups, occupation_grps['Business'].Male.values, bottom = occupation_grps['Business'].Female.values, color=colors[1])
+
+# set the location of the legend
+ax3.legend(title='Gender', labels=genders, loc='upper right')
+
+# title
+ax3.set_title('Business')
+for i, c in enumerate(ax3.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax3.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# rotation of xlabels
+for label in ax3.get_xticklabels():
+  label.set_rotation(45)
+  label.set_ha('right')
+    
+# Remove the top and right spines
+ax3.spines['top'].set_visible(False)
+ax3.spines['right'].set_visible(False)
+
+# create a stacked bar for Housewife occupation
+ax4.bar(groups, occupation_grps['Housewife'].Female.values, color=colors[0])
+ax4.bar(groups, occupation_grps['Housewife'].Male.values, bottom = occupation_grps['Housewife'].Female.values, color=colors[1])
+
+# set the location of the legend
+ax4.legend(title='Gender', labels=genders, loc='upper right')
+
+# title
+ax4.set_title('Housewife')
+for i, c in enumerate(ax4.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax4.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# rotation of xlabels
+for label in ax4.get_xticklabels():
+  label.set_rotation(45)
+  label.set_ha('right')
+    
+# Remove the top and right spines
+ax4.spines['top'].set_visible(False)
+ax4.spines['right'].set_visible(False)
+
+# create a stacked bar for Corporate occupation
+ax5.bar(groups, occupation_grps['Others'].Female.values, color=colors[0])
+ax5.bar(groups, occupation_grps['Others'].Male.values, bottom = occupation_grps['Others'].Female.values, color=colors[1])
+
+# set the location of the legend
+ax5.legend(title='Others', labels=genders, loc='upper right')
+
+# title
+ax5.set_title('Others')
+for i, c in enumerate(ax4.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax5.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# rotation of xlabels
+for label in ax5.get_xticklabels():
+  label.set_rotation(45)
+  label.set_ha('right')
+    
+# Remove the top and right spines
+ax5.spines['top'].set_visible(False)
+ax5.spines['right'].set_visible(False)
+
+## adjust the spacing between subplots
+fig.subplots_adjust(hspace=0.6)
+```
+</div>
+</details>
+<br/>
