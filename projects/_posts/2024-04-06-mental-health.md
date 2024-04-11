@@ -326,6 +326,13 @@ ax.spines['right'].set_visible(False)
 <br/>
 
 #### Number of Days Indoors by Occupation and Gender Distribution
+I wanted to break down the above information into gender groups to see if there is any difference in ratio of males and females staying indoors for a given period of time.
+
+What I found interesting is that female students had a very high amount of staying between 15-30 days.  This was quite a lot more than the other occupations especially the Others category where it was the lowest out of all occupations and in term of days indoors as a whole.
+
+Another observation I found interesting was within the Others occupation again. The amount of individuals staying indoors for 15-30 days was the lowest of them all and is half of the previous column of more than 2 months.
+
+Another intersting fact, was the amount of housewives especially males between 1-30 days being higher than the other occupations.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/days-indoors-by-occupation-breakdown.png){:.left loading="lazy"}
 
@@ -628,10 +635,24 @@ plt.close()
 </details>
 <br/>
 
+### Social Weakness by Mental Health History
 
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/social-weakness-by-mental-health-history.png){:.left loading="lazy"}
 
+Chart showing number of individuals with mental health history and social weakness.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+
+```
+</div>
+</details>
+<br/>
 
 
 ## Key Findings
 
-##Conclusion
+## Conclusion
