@@ -652,6 +652,39 @@ Chart showing number of individuals with mental health history and social weakne
 </details>
 <br/>
 
+### Mood Swings by Treatment
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/mood-swings-by-treatment.png){:.left loading="lazy"}
+
+Chart showing number of individuals with mood swings and treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+
+```
+</div>
+</details>
+<br/>
+
+### Growing Stress by Changing Habits
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/growing-stress-by-changing-habits.png){:.left loading="lazy"}
+
+Chart showing number of individuals with growing stress and changing habits.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+
+```
+</div>
+</details>
+<br/>
 
 ## Key Findings
 
