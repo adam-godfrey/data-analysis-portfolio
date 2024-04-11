@@ -327,9 +327,9 @@ ax.spines['right'].set_visible(False)
 
 #### Number of Days Indoors by Occupation and Gender Distribution
 
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/staying-indoors-by-occupation-breakdown.png){:.left loading="lazy"}
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/days-indoors-by-occupation-breakdown.png){:.left loading="lazy"}
 
-Chart showing number of individuals staying indoors by their occupation and gender distribution.
+Chart showing number of individuals days indoors by their occupation and gender distribution.
 {:.figcaption}
 
 <details>
@@ -578,8 +578,8 @@ Chart showing number of individuals coping struggles by seeking treatment and ge
 
 ```python
 # Analyze the relationship between coping struggles and treatment
-coping_struggles_by_treatment_yes = df[df['coping_struggles'] == 'Yes'].groupby(['coping_struggles', 'gender'])['gender'].count().unstack().fillna(0)
-coping_struggles_by_treatment_no = df[df['coping_struggles'] == 'No'].groupby(['coping_struggles', 'gender'])['gender'].count().unstack().fillna(0)
+coping_struggles_by_treatment_yes = df[df['coping_struggles'] == 'Yes'].groupby(['treatment', 'gender'])['gender'].count().unstack().fillna(0)
+coping_struggles_by_treatment_no = df[df['coping_struggles'] == 'No'].groupby(['treatment', 'gender'])['gender'].count().unstack().fillna(0)
 
 # chart settings
 colors = ['pink', 'steelblue'] 
@@ -591,7 +591,7 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
 
 fig.supxlabel('Coping Struggles')
 
-ax1 = coping_struggles_by_treatment_no.plot(kind='bar', ax=ax1, xlabel='No', ylabel='Seeking Treatment', color=colors)
+ax1 = coping_struggles_by_treatment_no.plot(kind='bar', ax=ax1, width=1, xlabel='No', ylabel='Seeking Treatment', color=colors)
 
 # set the location of the legend
 ax1.legend(title='Gender', labels=genders, loc='upper left')
@@ -606,7 +606,7 @@ for i, c in enumerate(ax1.containers):
 ax1.spines['top'].set_visible(False)
 ax1.spines['right'].set_visible(False)
 
-ax2 = coping_struggles_by_treatment_yes.plot(kind='bar', ax=ax2, xlabel='Yes', ylabel='Seeking Treatment', color=colors)
+ax2 = coping_struggles_by_treatment_yes.plot(kind='bar', ax=ax2, width=1, xlabel='Yes', ylabel='Seeking Treatment', color=colors)
 
 # set the location of the legend
 ax2.legend(title='Gender', labels=genders, loc='upper left')
@@ -627,3 +627,11 @@ plt.close()
 </div>
 </details>
 <br/>
+
+
+
+
+
+## Key Findings
+
+##Conclusion
