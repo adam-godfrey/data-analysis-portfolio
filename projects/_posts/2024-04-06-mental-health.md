@@ -160,7 +160,7 @@ plt.close()
 
 
 
-## Individuals Seeking Treatment by Gender
+### Individuals Seeking Treatment by Gender
 From the first chart below, we can see that individuals in both genders are about 5x more likely seek treatment.
 
 In the second chart, we can see that males are 4x more likely to not seek treatment compared to females and there is a near even split between both genders seeking treatment;.
@@ -252,7 +252,7 @@ labels = ['Female', 'Male']
 fig, ax = plt.subplots(1, 1 ,figsize=(10, 10))
 bottom = np.zeros(len(gender_by_country))
 
-## create the bars for each country
+# create the bars for each country
 for i, col in enumerate(gender_by_country.columns):
   p = ax.barh(gender_by_country.index, gender_by_country[col], left=bottom, label=col,
          color=colors[i])
