@@ -27,7 +27,7 @@ Chart showing individuals seeking treatment by gender.
 <div markdown="1">
 ```python
 # get counts by gender and if they are seeking treatment
-treatment_by_gender = df.groupby(['gender', 'treatment'])['treatment'].count().unstack().fillna(0)
+treatment_by_gender = df.groupby(['gender', 'treatment'])['treatment'].count().unstack()
 # get a propotion based on the above results
 treatment_by_gender_proportion = treatment_by_gender.div(treatment_by_gender.sum(1), axis=0)
 
@@ -38,44 +38,33 @@ labels = ['Female', 'Male']
 label_colors = ['black', 'white']
 
 # set the fig size for the titles
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+fig, (ax1, ax2) = plt.subplots(1, 2 ,figsize=(10, 4))
 
 # create a stacked bar on the left for counts
-ax1 = treatment_by_gender.plot(kind='bar', stacked=True, ax=ax1, xlabel='Coping Struggles', ylabel='Count', color=colors)
+ax1.bar(groups, treatment_by_gender.No.values, color=colors[0])
+ax1.bar(groups, treatment_by_gender.Yes.values, bottom = treatment_by_gender.No.values, color=colors[1])
 
 # set the location of the legend
 ax1.legend(title='Gender', labels=labels, loc='upper left')
 
-# rotation of xlabels
-for label in ax1.get_xticklabels():
-   label.set_rotation(0)
-   label.set_ha('right')
-    
-# create a stacked bar on the left for counts
-ax2 = treatment_by_gender_proportion.plot(kind='bar', stacked=True, ax=ax2, xlabel='Coping Struggles', ylabel='Count', color=colors)
-
-# set the location of the legend
-ax2.legend(title='Gender', labels=labels, loc='upper left')
-
-# rotation of xlabels
-for label in ax2.get_xticklabels():
-   label.set_rotation(0)
-   label.set_ha('right')
-    
 for i, c in enumerate(ax1.containers):
     # Optional: if the segment is small or 0, customize the labels
-    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
     # remove the labels parameter if it's not needed for customized labels
     ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+    
+# create a stacked bar on the right for proportion
+ax2.bar(groups, treatment_by_gender_proportion.No, color=colors[0])
+ax2.bar(groups, treatment_by_gender_proportion.Yes, bottom = treatment_by_gender_proportion.No, color=colors[1])
 
 for i, c in enumerate(ax2.containers):
     # Optional: if the segment is small or 0, customize the labels
-    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    labels = [f'{v.get_height():.1f}' if v.get_height() > 0 else '' for v in c]
     # remove the labels parameter if it's not needed for customized labels
     ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
     
 # common axis labels
-fig.supxlabel('Seeking Treatment')
+fig.supxlabel('Individuals Seeking Treatment')
 fig.supylabel('Count')
 
 # Remove the top and right spines
@@ -271,8 +260,9 @@ ax1 = sns.countplot(x='mood_swings', data=df[df['gender'] == 'Female'], hue='tre
 
 # set the location of the legend
 ax1.legend(title='Treatment', labels=legend, loc='upper left')
-# set the xlabel for females chart
+# set the xlabel and ylabelfor females chart
 ax1.set_xlabel('Female')
+ax1.set_ylabel('Count')
 
 for i, c in enumerate(ax1.containers):
     # Optional: if the segment is small or 0, customize the labels
@@ -288,8 +278,9 @@ ax2  = sns.countplot(x='mood_swings', data=df[df['gender'] == 'Male'], hue='trea
 
 # set the location of the legend
 ax2.legend(title='Treatment', labels=legend, loc='upper left')
-# set the xlabel for females chart
-ax2.set_xlabel('Male')
+# set the xlabel and ylabelfor males chart
+ax2.set_xlabel('Mmale')
+ax2.set_ylabel('Count')
 
 for i, c in enumerate(ax2.containers):
     # Optional: if the segment is small or 0, customize the labels
