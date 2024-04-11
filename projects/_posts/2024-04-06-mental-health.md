@@ -325,7 +325,7 @@ ax.spines['right'].set_visible(False)
 </details>
 <br/>
 
-### Staying Indoors by Occupation and Gender Distribution
+#### Number of Days Indoors by Occupation and Gender Distribution
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/staying-indoors-by-occupation-breakdown.png){:.left loading="lazy"}
 
@@ -561,6 +561,54 @@ ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
+```
+</div>
+</details>
+<br/>
+
+#### Coping Struggles by Seeking Treatment and Gender Distribution
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment-gender.png){:.left loading="lazy"}
+
+Chart showing number of individuals coping struggles by seeking treatment and gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+
+```python
+# Analyze the relationship between coping struggles and treatment
+coping_struggles_by_treatment = df.groupby(['treatment', 'coping_struggles', 'gender'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+pallet = ['#FFC0CB', '#4682b4']
+legend = ['Female', 'Male']
+label_colors = ['black', 'white']
+
+# set the figure size
+plt.figure(figsize=(10, 6))
+
+ax = sns.countplot(x=df['coping_struggles'], data=df['treatment'], hue=df['gender'],  palette = pallet)
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+ax.set_xlabel('Coping Struggles')
+ax.set_ylabel('Seeking Treatment')
+
+plt.legend(title='Gender')
+plt.show()
 ```
 </div>
 </details>
