@@ -53,7 +53,7 @@ df.head()
 </details>
 <br/>
 
-As you can see, we have some NAN values in the self_empoyed column.
+As you can see, we have some NaN values in the self_empoyed column.
 
 ![Pandas dataframe showing first 5 rows](/assets/img/mental-health/pandas-head.png "Pandas dataframe showing first 5 rows")
 
@@ -570,6 +570,10 @@ ax.spines['right'].set_visible(False)
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment-gender.png){:.left loading="lazy"}
 
+{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment-gender.png" alt="Chart showing number of individuals coping struggles by seeking treatment and gender distribution" 
+title="Chart showing number of individuals coping struggles by seeking treatment and gender distribution" 
+description="/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment-gender-table.png" %}
+
 Chart showing number of individuals coping struggles by seeking treatment and gender distribution.
 {:.figcaption}
 
@@ -579,36 +583,51 @@ Chart showing number of individuals coping struggles by seeking treatment and ge
 
 ```python
 # Analyze the relationship between coping struggles and treatment
-coping_struggles_by_treatment = df.groupby(['treatment', 'coping_struggles', 'gender'])['treatment'].count().unstack().fillna(0)
+coping_struggles_by_treatment_yes = df[df['coping_struggles'] == 'Yes'].groupby(['coping_struggles', 'gender'])['gender'].count().unstack().fillna(0)
+coping_struggles_by_treatment_no = df[df['coping_struggles'] == 'No'].groupby(['coping_struggles', 'gender'])['gender'].count().unstack().fillna(0)
 
 # chart settings
-pallet = ['#FFC0CB', '#4682b4']
-legend = ['Female', 'Male']
+colors = ['pink', 'steelblue'] 
+genders = ['Female', 'Male']
 label_colors = ['black', 'white']
 
-# set the figure size
-plt.figure(figsize=(10, 6))
+# set the fig size for the titles
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
 
-ax = sns.countplot(x=df['coping_struggles'], data=df['treatment'], hue=df['gender'],  palette = pallet)
+fig.supxlabel('Coping Struggles')
 
-for i, c in enumerate(ax.containers):
+ax1 = coping_struggles_by_treatment_no.plot(kind='bar', ax=ax1, xlabel='No', ylabel='Seeking Treatment', color=colors)
+
+# set the location of the legend
+ax1.legend(title='Gender', labels=genders, loc='upper left')
+
+for i, c in enumerate(ax1.containers):
     # Optional: if the segment is small or 0, customize the labels
     labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
     # remove the labels parameter if it's not needed for customized labels
-    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
-
-# set the location of the legend
-ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+    ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # Remove the top and right spines
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
 
-ax.set_xlabel('Coping Struggles')
-ax.set_ylabel('Seeking Treatment')
+ax2 = coping_struggles_by_treatment_yes.plot(kind='bar', ax=ax2, xlabel='Yes', ylabel='Seeking Treatment', color=colors)
 
-plt.legend(title='Gender')
+# set the location of the legend
+ax2.legend(title='Gender', labels=genders, loc='upper left')
+
+for i, c in enumerate(ax2.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
 plt.show()
+plt.close()
 ```
 </div>
 </details>
