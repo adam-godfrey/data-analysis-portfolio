@@ -570,7 +570,7 @@ ax.spines['right'].set_visible(False)
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment-gender.png){:.left loading="lazy"}
 
-{% include img-left-box.html path="/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment-gender.png" alt="Chart showing number of individuals coping struggles by seeking treatment and gender distribution" 
+{% include img-left.html path="/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment-gender.png" alt="Chart showing number of individuals coping struggles by seeking treatment and gender distribution" 
 title="Chart showing number of individuals coping struggles by seeking treatment and gender distribution" 
 description="/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment-gender-table.png" %}
 
