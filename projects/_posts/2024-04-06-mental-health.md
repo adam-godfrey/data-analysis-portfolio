@@ -231,7 +231,7 @@ Most of the other countries were around a few hundred or few thousand with the e
 
 From this information, it made me curious as to why the United States and United Kingdom have the vastly the highest amounts in the world. What I found interesting is the amount in the United Kingdom. For such a small country compared to the majority of other countries, there was a high percentage. 
 
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/gender-by-country.png){:.centered loading="lazy"}
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/gender-by-country.png){:.left loading="lazy"}
 
 Chart showing gender distribution by country.
 {:.figcaption}
@@ -327,7 +327,7 @@ ax.spines['right'].set_visible(False)
 
 ### Staying Indoors by Occupation and Gender Distribution
 
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/staying-indoors-by-occupation-breakdown.png){:.centered loading="lazy"}
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/staying-indoors-by-occupation-breakdown.png){:.left loading="lazy"}
 
 Chart showing number of individuals staying indoors by their occupation and gender distribution.
 {:.figcaption}
@@ -486,6 +486,81 @@ ax5.spines['right'].set_visible(False)
 
 ## adjust the spacing between subplots
 fig.subplots_adjust(hspace=0.6)
+```
+</div>
+</details>
+<br/>
+
+### Work Interest by Occupation
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/work-interest-by-occupation.png){:.left loading="lazy"}
+
+Chart showing number of individuals work interest by their occupation.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between occupation and work interest
+work_interest_by_occupation = df.groupby(['occupation', 'work_interest'])['work_interest'].count().unstack().fillna(0)
+
+# chart settings
+legend = ['Maybe', 'No', 'Yes']
+label_colors = ['white', 'white', 'white']
+
+ax = work_interest_by_occupation.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Occupation', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Work Interest', labels=legend, loc='upper left')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+```
+</div>
+</details>
+<br/>
+
+
+### Coping Struggles by Seeking Treatment
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/coping-struggles-treatment.png){:.left loading="lazy"}
+
+Chart showing number of individuals coping struggles by seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between coping struggles and treatment
+coping_struggles_by_treatment = df.groupby(['treatment', 'coping_struggles'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
+
+ax = coping_struggles_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Coping Struggles', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [v.get_height() if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
 ```
 </div>
 </details>
