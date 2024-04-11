@@ -8,7 +8,7 @@ description: >
   Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
 hide_description: true
 sitemap: false
-permalink: /projects/2023-04-06-mental-health/
+permalink: /projects/2024-04-11-mental-health-treatment-analysis/
 ---
 # Mental health study and behaviours
 
