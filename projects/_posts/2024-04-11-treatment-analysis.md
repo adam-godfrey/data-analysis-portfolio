@@ -32,7 +32,43 @@ For this section on treatment, I wanted to visualise if seeking treatment for me
 I believe a lot of these factors are related such as **Occupation**, **Growing Stress** and **Work Interest**. Some occupations can be very stressful, with some occupations the individual may have a serious lack of work interest.
 
 I want to complete some further analysis to see if there are links between the categories.
-## Seeking Treatment by Gender
+
+
+## Seeking Treatment
+The first task was to get an idea of the percentage of individuals who are seeking treatment.
+
+From the chart, it is easy to see there that is a 50/50 split between seeking treatment and not seeking treatment.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/seeking-treatment.png){:.left loading="lazy"}
+
+Chart showing seeking streatement percentages.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Plotting the pie chart for dataframe 
+treatment = df.groupby(['treatment'])['treatment'].count()
+
+fig, ax = plt.subplots(figsize=(4, 4))
+
+# Capture each of the return elements.
+patches, texts, pcts = ax.pie(
+    treatment, labels=labels, autopct='%.1f%%',
+    wedgeprops={'linewidth': 3.0, 'edgecolor': 'white'})
+
+# Style just the percent values.
+plt.setp(pcts, color='white', fontweight='bold')
+plt.tight_layout()
+plt.show()
+plt.close()
+```
+</div>
+</details>
+<br/>
+
+### Seeking Treatment by Gender
 First of all, I wanted to get an idea of the distribution between genders who are seeking treatment. I already know from the [initial analysis](https://adam-godfrey.github.io/data-analysis-portfolio/projects/2024-04-06-mental-health/) that the gender ratio of individuals who completed the study was 4:1 males vs. females. so I was expecting a larger amount of values for males.
 
 From the first chart below, we can see that individuals in both genders are about 5x more likely seek treatment.
@@ -389,7 +425,7 @@ plt.close()
 
 ### Social Weakness by Gender
 
-Again, the chart looks very similar to the mood swings gender chart where a vast majority of females aren't seeking treatment. The males on the other hand, about 40% are seeking treatment
+Again, the chart looks very similar to the mood swings gender chart where a vast majority of females aren't seeking treatment. The males on the other hand, about 46% are seeking treatment
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment-by-gender.png){:.left loading="lazy"}
 
