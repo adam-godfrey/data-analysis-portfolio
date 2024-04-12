@@ -5,7 +5,7 @@ categories: [projects]
 image: 
   path: /assets/img/mental-health/mental-health.png
 description: >
-  This section breaks down each of the variables by treatment to see if there is correlation between them.
+  This section breaks down each of the categories by treatment to see if there is correlation between them.
 hide_description: true
 sitemap: false
 permalink: /projects/2024-04-11-mental-health-treatment-analysis/
@@ -158,7 +158,7 @@ Chart showing individuals with coping struggles.
 <div markdown="1">
 ```python
 # Analyze the relationship between coping struggles and treatment
-coping_struggles_by_treatment = df.groupby(['treatment', 'coping_struggles'])['treatment'].count().unstack().fillna(0)
+coping_struggles_by_treatment = df.groupby(['coping_struggles', 'treatment'])['coping_struggles'].count().unstack().fillna(0)
 
 # chart settings
 legend = ['No', 'Yes']
@@ -274,11 +274,11 @@ Chart showing individuals with mood swings.
 <div markdown="1">
 ```python
 # Analyze the relationship between mood swings and treatment
-mood_swings_by_treatment = df.groupby(['treatment', 'mood_swings'])['treatment'].count().unstack().fillna(0)
+mood_swings_by_treatment = df.groupby(['mood_swings', 'treatment'])['mood_swings'].count().unstack().fillna(0)
 
 # chart settings
-legend = ['Maybe', 'No', 'Yes']
-label_colors = ['white', 'white', 'white']
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
 
 # Visualize the relationship between mood swings and treatment
 ax = mood_swings_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Mood Swings', ylabel='Count')
@@ -290,7 +290,7 @@ for i, c in enumerate(ax.containers):
     ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # set the location of the legend
-ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper left')
 
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
@@ -394,11 +394,11 @@ Chart showing individuals with social weakness.
 <div markdown="1">
 ```python
 # Analyze the relationship between social weakness and treatment
-social_weakness_by_treatment = df.groupby(['treatment', 'social_weakness'])['treatment'].count().unstack().fillna(0)
+social_weakness_by_treatment = df.groupby(['social_weakness', 'treatment'])['social_weakness'].count().unstack().fillna(0)
 
 # chart settings
-legend = ['Maybe', 'No', 'Yes']
-label_colors = ['white', 'white', 'white']
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
 
 # Visualize the relationship between social weakness and treatment
 ax = social_weakness_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Social Weakness', ylabel='Count')
@@ -410,7 +410,7 @@ for i, c in enumerate(ax.containers):
     ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # set the location of the legend
-ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper right')
 
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
@@ -508,15 +508,14 @@ Chart showing individual's number of days indoors.
 <summary>Expand to see code used</summary>
 <div markdown="1">
 ```python
-# Analyze the relationship between occupation and treatment
-days_indoors_by_treatment = df.groupby(['treatment', 'days_indoors'])['treatment'].count().unstack().fillna(0)
+# Analyze the relationship between days indoors and treatment
+days_indoors_by_treatment = df.groupby(['days_indoors', 'treatment'])['days_indoors'].count().unstack().fillna(0)
 
 # chart settings
-legend = ['1-14 days', '15-30 days', '31-60 days', 'Go out everyday', 'More than 2 months']
-colors = ['red', 'yellow', 'limegreen', 'dodgerblue', 'rebeccapurple']
-label_colors = ['white', 'black', 'black', 'white', 'white']
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
 
-# Visualize the relationship between occupation and treatment
+# Visualize the relationship between days indoors and treatment
 ax = days_indoors_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Days Indoors', ylabel='Count')
 
 for i, c in enumerate(ax.containers):
@@ -526,7 +525,7 @@ for i, c in enumerate(ax.containers):
     ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # set the location of the legend
-ax.legend(title='Seeking Treatment', labels=legend, loc='center')
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper right')
 
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
@@ -633,6 +632,8 @@ plt.close()
 </details>
 <br/> 
 
+## Occupation
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individual's occupation.
@@ -641,18 +642,16 @@ Chart showing individual's occupation.
 <details>
 <summary>Expand to see code used</summary>
 <div markdown="1">
-## Occupation
 ```python
 # Analyze the relationship between occupation and treatment
-days_indoors_by_treatment = df.groupby(['treatment', 'days_indoors'])['treatment'].count().unstack().fillna(0)
+occupation_by_treatment = df.groupby(['occupation', 'treatment'])['occupation'].count().unstack().fillna(0)
 
 # chart settings
-legend = ['1-14 days', '15-30 days', '31-60 days', 'Go out everyday', 'More than 2 months']
-colors = ['red', 'yellow', 'limegreen', 'dodgerblue', 'rebeccapurple']
-label_colors = ['white', 'black', 'black', 'white', 'white']
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
 
 # Visualize the relationship between occupation and treatment
-ax = days_indoors_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Occupation', ylabel='Count')
+ax = occupation_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Occupation', ylabel='Count')
 
 for i, c in enumerate(ax.containers):
     # Optional: if the segment is small or 0, customize the labels
@@ -661,7 +660,7 @@ for i, c in enumerate(ax.containers):
     ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # set the location of the legend
-ax.legend(title='Seeking Treatment', labels=legend, loc='center')
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper left')
 
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
@@ -768,13 +767,13 @@ Chart showing individual's work interest.
 <div markdown="1">
 ```python
 # Analyze the relationship between work interest and treatment
-work_interest_by_treatment = df.groupby(['treatment', 'work_interest'])['treatment'].count().unstack().fillna(0)
+work_interest_by_treatment = df.groupby(['work_interest', 'treatment'])['work_interest'].count().unstack().fillna(0)
 
 # chart settings
-legend = ['Maybe', 'No', 'Yes']
-label_colors = ['white', 'white', 'white']
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
 
-# Visualize the relationship between social weakness and treatment
+# Visualize the relationship between work interest and treatment
 ax = work_interest_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Work Interest', ylabel='Count')
 
 for i, c in enumerate(ax.containers):
@@ -784,7 +783,7 @@ for i, c in enumerate(ax.containers):
     ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # set the location of the legend
-ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper right')
 
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
@@ -873,11 +872,11 @@ Chart showing individuals with growing stress.
 <div markdown="1">
 ```python
 # Analyze the relationship between growing stress history and treatment
-growing_stress_by_treatment = df.groupby(['treatment', 'growing_stress'])['treatment'].count().unstack().fillna(0)
+growing_stress_by_treatment = df.groupby(['growing_stress', 'treatment'])['growing_stress'].count().unstack().fillna(0)
 
 # chart settings
-legend = ['Maybe', 'No', 'Yes']
-label_colors = ['white', 'white', 'white']
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
 
 # Visualize the relationship between growing stress and treatment
 ax = mental_health_history_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Growing Stress', ylabel='Count')
@@ -889,7 +888,7 @@ for i, c in enumerate(ax.containers):
     ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # set the location of the legend
-ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper right')
 
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
@@ -976,15 +975,15 @@ Chart showing individuals with family history.
 <summary>Expand to see code used</summary>
 <div markdown="1">
 ```python
-# Analyze the relationship between family history and treatment
-family_history_by_treatment = df.groupby(['treatment', 'family_history'])['treatment'].count().unstack().fillna(0)
+# Analyze the relationship between growing stress history and treatment
+growing_stress_by_treatment = df.groupby(['growing_stress', 'treatment'])['growing_stress'].count().unstack().fillna(0)
 
 # chart settings
 legend = ['No', 'Yes']
 label_colors = ['white', 'white']
 
-# Visualize the relationship between family history and treatment
-ax = family_history_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Family History', ylabel='Count')
+# Visualize the relationship between growing stress and treatment
+ax = mental_health_history_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Growing Stress', ylabel='Count')
 
 for i, c in enumerate(ax.containers):
     # Optional: if the segment is small or 0, customize the labels
@@ -993,7 +992,7 @@ for i, c in enumerate(ax.containers):
     ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # set the location of the legend
-ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper right')
 
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
@@ -1081,13 +1080,13 @@ Chart showing individuals with mental health history.
 <div markdown="1">
 ```python
 # Analyze the relationship between mental health history and treatment
-mental_health_history_by_treatment = df.groupby(['treatment', 'mental_health_history'])['treatment'].count().unstack().fillna(0)
+mental_health_history_by_treatment = df.groupby(['mental_health_history', 'treatment'])['mental_health_history'].count().unstack().fillna(0)
 
 # chart settings
-legend = ['Maybe', 'No', 'Yes']
-label_colors = ['white', 'white', 'white']
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
 
-# Visualize the relationship between mental health = history and treatment
+# Visualize the relationship between mental health history and treatment
 ax = mental_health_history_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Mental Health History', ylabel='Count')
 
 for i, c in enumerate(ax.containers):
@@ -1097,7 +1096,7 @@ for i, c in enumerate(ax.containers):
     ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
 
 # set the location of the legend
-ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper right')
 
 # Remove the top and right spines
 ax.spines['top'].set_visible(False)
@@ -1185,12 +1184,11 @@ Chart showing individuals with changing habits.
 <div markdown="1">
 ```python
 # Analyze the relationship between changing habits and treatment
-changes_habits_by_treatment = df.groupby(['treatment', 'changes_habits'])['treatment'].count().unstack().fillna(0)
+changes_habits_by_treatment = df.groupby(['changes_habits', 'treatment'])['changes_habits'].count().unstack().fillna(0)
 
 # chart settings
-# chart settings
-legend = ['Maybe', 'No', 'Yes']
-label_colors = ['white', 'white', 'white']
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
 
 # Visualize the relationship between changing habits and treatment
 ax = changes_habits_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Changes Habits', ylabel='Count')
@@ -1290,15 +1288,14 @@ Chart showing individuals with care options.
 <div markdown="1">
 ```python
 # Analyze the relationship between care options and treatment
-changes_habits_by_treatment = df.groupby(['treatment', 'care_options'])['treatment'].count().unstack().fillna(0)
+care_options_treatment = df.groupby(['care_options', 'treatment'])['care_options'].count().unstack().fillna(0)
 
 # chart settings
-# chart settings
-legend = ['Maybe', 'No', 'Yes']
-label_colors = ['white', 'white', 'white']
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
 
-# Visualize the relationship between changing habits and treatment
-ax = changes_habits_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Care Options', ylabel='Count')
+# Visualize the relationship between care options and treatment
+ax = care_options_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Care Options', ylabel='Count')
 
 for i, c in enumerate(ax.containers):
     # Optional: if the segment is small or 0, customize the labels
