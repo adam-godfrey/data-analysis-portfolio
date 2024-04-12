@@ -8,11 +8,11 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    
-    Open `_data/authors.yml` to edit this text.
+    Hi
+
+    My name is Adam Godfrey and I am an aspiring Data Analyst, Web Developer and Music Producer.
+
+    I first gained a massive interest in web development whilst studying as a mature student at [East Devon College](https://www.petroc.ac.uk/) (now know as Petroc). I was studying a BTeC National Diploma in Computers (software Development) and I finished with a triple Distinction.
 
   # This photo will be used in the about section
   picture:
