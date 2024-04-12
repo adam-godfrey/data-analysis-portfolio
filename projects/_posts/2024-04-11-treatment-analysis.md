@@ -37,7 +37,7 @@ I want to complete some further analysis to see if there are links between the c
 ## Seeking Treatment
 The first task was to get an idea of the percentage of individuals who are seeking treatment.
 
-From the chart, it is easy to see there that is a 50/50 split between seeking treatment and not seeking treatment.
+From the chart, it is easy to see there that is very nearly a 50/50 split between seeking treatment and not seeking treatment.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/seeking-treatment.png){:.left loading="lazy"}
 
@@ -263,7 +263,7 @@ plt.close()
 ## Mood Swings
 For this section I wanted to see if seeking treatment has any effect on a person's mood swings.
 
-It's interesting to see that it is nearly very evenly split between all possible values being Yes, No and Maybe and seeking treatment doesn't seem to have any effect on mood swings.
+It's interesting to see that it is nearly very evenly split between all possible values being High, Low and Medium and seeking treatment doesn't seem to have any effect on mood swings.
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mood-swings-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with mood swings.
@@ -376,7 +376,7 @@ plt.close()
 ## Social Weakness
 For this section I wanted to see if social weakness is affected by indiviudals seeking treatment.
 
-This chart looks very similar to the mood swings chart except he values have been inverted with Maybe having the highest count instead of Yes.
+This chart looks very similar to the mood swings chart except Maybe having the highest counts across the board.
 
 Again, it appears that seeking treatment doesn't seem to impact on social weakness.
 
@@ -491,6 +491,14 @@ plt.close()
 <br/>   
 
 ## Number of Days Indoors
+For this section, I wanted to see if seeking treatment has any effect on the amount of days individuals are spending indoors.
+
+it is very interesting to see that there isn't much variation between the number of days indoors for both seeking and not seeking treatment.
+
+People who go out every day are still quite high in terms of value counts whether they have treatment or not but we can see that mostly people are staying indoors between 1-14 days.
+
+The difference between seeking treatment or not is so marginal, it appears that seeking treatment doesn't affect the number of days people are staying indoors.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individual's number of days indoors.
@@ -532,6 +540,10 @@ plt.close()
 <br/> 
 
 ### Female Number of Days Indoors
+There is no surprise here that females are not seeking teatment but it does affect how many days they stay indoors. 
+
+It is pretty evely levelled out across the board however you can see, those who are not seeking treatment are more likely to stay indoors for long periods of time.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-female.png){:.left loading="lazy"}
 
 Chart showing female individual's number of days indoors.
@@ -574,6 +586,12 @@ plt.close()
 <br/> 
 
 ### Male Number of Days Indoors
+Unlike the females, males are more likely to seek treatment anbd this clearly shows.
+
+What I would've expected to see is a higher increase in lower number of days indoors such as 'Go out every day' althought 1-14 days has a high value count.
+
+For those who are seeking treatment, it would be good to see if any other factors are affecting this.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-male.png){:.left loading="lazy"}
 
 Chart showing male individual's number of days indoors.
