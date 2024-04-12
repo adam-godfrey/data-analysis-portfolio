@@ -338,6 +338,16 @@ plt.close()
 <br/>
 
 ## Social Weakness
+For this section I wanted to see if social weakness is affected by indiviudals seeking treatment.
+
+This chart looks very similar to the mood swings chart except he values have been inverted with Maybe having the highest count instead of Yes.
+
+Again, it appears that seeking treatment doesn't seem to impact on social weakness.
+
+For people who don't have social weakness and aren't seeking treatment, what factors are affecting this....occupation enjoyment? For those who are seeking treatment, is the treatment helping with the social anxiety?
+
+For those who have social weakness, is there another factor influencing this?
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with social weakness.
@@ -378,6 +388,9 @@ plt.close()
 <br/>
 
 ### Social Weakness by Gender
+
+Again, the chart looks very similar to the mood swings gender chart where a vast majority of females aren't seeking treatment. The males on the other hand, about 40% are seeking treatment
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with social weakness by gender.
