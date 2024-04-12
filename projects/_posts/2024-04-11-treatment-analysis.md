@@ -768,7 +768,7 @@ plt.close()
 
 ## Work Interest
 
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment-by-gender.png){:.left loading="lazy"}
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individual's work interest.
 {:.figcaption}
