@@ -5,12 +5,12 @@ categories: [projects]
 image: 
   path: /assets/img/mental-health/mental-health.png
 description: >
-  Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
+  This section breaks down each of the variables by treatment to see if there is correlation between them.
 hide_description: true
 sitemap: false
 permalink: /projects/2024-04-11-mental-health-treatment-analysis/
 ---
-# Mental health study and behaviours
+# Mental Health Analysis - Treatment
 
 ## Individuals Seeking Treatment by Gender
 From the first chart below, we can see that individuals in both genders are about 5x more likely seek treatment.
@@ -197,7 +197,7 @@ plt.close()
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mood-swings-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individuals with mood swings by seeking treatment by gender distribution.
+Chart showing individuals with mood swings seeking treatment.
 {:.figcaption}
 
 <details>
@@ -238,7 +238,7 @@ plt.close()
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mood-swings-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with mood swings by seeking treatment by gender distribution.
+Chart showing individuals with mood swings seeking treatment by gender distribution.
 {:.figcaption}
 
 <details>
@@ -299,11 +299,404 @@ plt.close()
 </details>
 <br/>
 
-## Individuals Work Interest Seeking Treatment by Gender Distrubtion
+## Individuals With Social Weakness
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment-by-gender.png){:.left loading="lazy"}
 
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment.png){:.left loading="lazy"}
+Chart showing individuals with social weakness seeking treatment.
+{:.figcaption}
 
-Chart showing individuals with mood swings by seeking treatment by gender distribution.
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between social weakness and treatment
+social_weakness_by_treatment = df.groupby(['treatment', 'social_weakness'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+legend = ['Maybe', 'No', 'Yes']
+label_colors = ['white', 'white', 'white']
+
+# Visualize the relationship between social weakness and treatment
+ax = social_weakness_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Social Weakness', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+</div>
+</details>
+<br/>
+
+### Individuals With Social Weakness by Gender
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individuals with social weakness seeking treatment by gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# chart settings
+female_pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+male_pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+legend = ['No', 'Yes']
+label_colors = ['black', 'white']
+
+# set the fig size for the titles
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+fig.supxlabel('Social Weakness')
+
+ax1 = sns.countplot(x='social_weakness', data=df[df['gender'] == 'Female'], hue='treatment', ax=ax1, palette = female_pallete)
+
+# set the location of the legend
+ax1.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor females chart
+ax1.set_xlabel('Female')
+ax1.set_ylabel('Count')
+
+for i, c in enumerate(ax1.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+ax2  = sns.countplot(x='social_weakness', data=df[df['gender'] == 'Male'], hue='treatment', ax=ax2, palette=male_pallete)
+
+# set the location of the legend
+ax2.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor males chart
+ax2.set_xlabel('Male')
+ax2.set_ylabel('Count')
+
+for i, c in enumerate(ax2.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/>   
+
+## Individuals Number of Days Indoors
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individual's number of days indoors seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between occupation and treatment
+days_indoors_by_treatment = df.groupby(['treatment', 'days_indoors'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+legend = ['1-14 days', '15-30 days', '31-60 days', 'Go out everyday', 'More than 2 months']
+colors = ['red', 'yellow', 'limegreen', 'dodgerblue', 'rebeccapurple']
+label_colors = ['white', 'black', 'black', 'white', 'white']
+
+# Visualize the relationship between occupation and treatment
+ax = days_indoors_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Days Indoors', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+### IndividualFemales Number of Days Indoors
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-female.png){:.left loading="lazy"}
+
+Chart showing female individual's number of days indoors seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Correlation between days idoors and treatment
+pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+label_colors = ['black', 'white']
+
+plt.figure(figsize=(10, 6))
+
+ax = sns.countplot(x='days_indoors', data=df[df['gender'] == 'Female'], hue='treatment', palette=pallete)
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper left')
+
+# set the xlabel and ylabelfor females chart
+ax.set_xlabel('Days Indoors')
+ax.set_ylabel('Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+### Individual Males Number of Days Indoors
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-male.png){:.left loading="lazy"}
+
+Chart showing male individual's number of days indoors seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Correlation between days idoors and treatment
+pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+label_colors = ['black', 'white']
+
+plt.figure(figsize=(10, 6))
+
+ax = sns.countplot(x='days_indoors', data=df[df['gender'] == 'Male'], hue='treatment', palette=pallete)
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper left')
+
+# set the xlabel and ylabelfor females chart
+ax.set_xlabel('Days Indoors')
+ax.set_ylabel('Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment.png){:.left loading="lazy"}
+
+Chart showing individual's occupation seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+## Individuals Occupation
+```python
+# Analyze the relationship between occupation and treatment
+days_indoors_by_treatment = df.groupby(['treatment', 'days_indoors'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+legend = ['1-14 days', '15-30 days', '31-60 days', 'Go out everyday', 'More than 2 months']
+colors = ['red', 'yellow', 'limegreen', 'dodgerblue', 'rebeccapurple']
+label_colors = ['white', 'black', 'black', 'white', 'white']
+
+# Visualize the relationship between occupation and treatment
+ax = days_indoors_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Occupation', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+### Individuals Occupation by Female
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment-female.png){:.left loading="lazy"}
+
+Chart showing female individual's occupation seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Correlation between family history and mh history
+pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+
+plt.figure(figsize=(10, 6))
+
+ax = sns.countplot(x='occupation', data=df[df['gender'] == 'Female'], hue='treatment', palette=pallete)
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper left')
+
+# set the xlabel and ylabelfor females chart
+ax.set_xlabel('Occupation')
+ax.set_ylabel('Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+### Individuals Occupation by Male
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment-male.png){:.left loading="lazy"}
+
+Chart showing male individual's occupation seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Correlation between family history and mh history
+pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+
+plt.figure(figsize=(10, 6))
+
+ax = sns.countplot(x='occupation', data=df[df['gender'] == 'Male'], hue='treatment', palette=pallete)
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper right')
+
+# set the xlabel and ylabelfor females chart
+ax.set_xlabel('Occupation')
+ax.set_ylabel('Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+## Individuals Work Interest Seeking Treatment
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individual's work interest by seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between work interest and treatment
+work_interest_by_treatment = df.groupby(['treatment', 'work_interest'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+legend = ['Maybe', 'No', 'Yes']
+label_colors = ['white', 'white', 'white']
+
+# Visualize the relationship between social weakness and treatment
+ax = work_interest_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Work Interest', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+</div>
+</details>
+<br/>
+
+### Individuals Work Interest Seeking Treatment by Gender Distrubtion
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individual's work interest seeking treatment by gender distribution.
 {:.figcaption}
 
 <details>
@@ -363,3 +756,527 @@ plt.close()
 </div>
 </details>
 <br/>
+
+## Individuals With Growing Stress
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/growing-stress-by-treatment.png){:.left loading="lazy"}
+
+Chart showing individuals with growing stress seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between growing stress history and treatment
+growing_stress_by_treatment = df.groupby(['treatment', 'growing_stress'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+legend = ['Maybe', 'No', 'Yes']
+label_colors = ['white', 'white', 'white']
+
+# Visualize the relationship between growing stress and treatment
+ax = mental_health_history_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Growing Stress', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+### Individuals With Growing Stress by Gender
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/growing-stress-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individuals with growing stress seeking treatment by gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# chart settings
+female_pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+male_pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+legend = ['No', 'Yes']
+label_colors = ['black', 'white']
+
+# set the fig size for the titles
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+fig.supxlabel('Growing Stress')
+
+ax1 = sns.countplot(x='growing_stress', data=df[df['gender'] == 'Female'], hue='treatment', ax=ax1, palette = female_pallete)
+
+# set the location of the legend
+ax1.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor females chart
+ax1.set_xlabel('Female')
+ax1.set_ylabel('Count')
+
+for i, c in enumerate(ax1.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+ax2  = sns.countplot(x='growing_stress', data=df[df['gender'] == 'Male'], hue='treatment', ax=ax2, palette=male_pallete)
+
+# set the location of the legend
+ax2.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor males chart
+ax2.set_xlabel('Male')
+ax2.set_ylabel('Count')
+
+for i, c in enumerate(ax2.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+## Individuals With Family History
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/family-history-by-treatment.png){:.left loading="lazy"}
+
+Chart showing individuals with family history seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between family history and treatment
+family_history_by_treatment = df.groupby(['treatment', 'family_history'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+legend = ['No', 'Yes']
+label_colors = ['white', 'white']
+
+# Visualize the relationship between family history and treatment
+ax = family_history_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Family History', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+### Individuals With Family History by Gender
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/family-history-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individuals with family history seeking treatment by gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# chart settings
+female_pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+male_pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+legend = ['No', 'Yes']
+label_colors = ['black', 'white']
+
+# set the fig size for the titles
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+fig.supxlabel('Family History')
+
+ax1 = sns.countplot(x='family_history', data=df[df['gender'] == 'Female'], hue='treatment', ax=ax1, palette = female_pallete)
+
+# set the location of the legend
+ax1.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor females chart
+ax1.set_xlabel('Female')
+ax1.set_ylabel('Count')
+
+for i, c in enumerate(ax1.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+ax2  = sns.countplot(x='family_history', data=df[df['gender'] == 'Male'], hue='treatment', ax=ax2, palette=male_pallete)
+
+# set the location of the legend
+ax2.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor males chart
+ax2.set_xlabel('Male')
+ax2.set_ylabel('Count')
+
+for i, c in enumerate(ax2.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+## Individuals With Mental Health History
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mental-health-history-by-treatment.png){:.left loading="lazy"}
+
+Chart showing individuals with mental health history seeking treatment.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between mental health history and treatment
+mental_health_history_by_treatment = df.groupby(['treatment', 'mental_health_history'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+legend = ['Maybe', 'No', 'Yes']
+label_colors = ['white', 'white', 'white']
+
+# Visualize the relationship between mental health = history and treatment
+ax = mental_health_history_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Mental Health History', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+### Individuals With Mental Health History by Gender
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mental-health-history-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individuals with mental health history seeking treatment by gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# chart settings
+female_pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+male_pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+legend = ['No', 'Yes']
+label_colors = ['black', 'white']
+
+# set the fig size for the titles
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+fig.supxlabel('Mental Health History')
+
+ax1 = sns.countplot(x='mental_health_history', data=df[df['gender'] == 'Female'], hue='treatment', ax=ax1, palette = female_pallete)
+
+# set the location of the legend
+ax1.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor females chart
+ax1.set_xlabel('Female')
+ax1.set_ylabel('Count')
+
+for i, c in enumerate(ax1.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+ax2  = sns.countplot(x='mental_health_history', data=df[df['gender'] == 'Male'], hue='treatment', ax=ax2, palette=male_pallete)
+
+# set the location of the legend
+ax2.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor males chart
+ax2.set_xlabel('Male')
+ax2.set_ylabel('Count')
+
+for i, c in enumerate(ax2.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+## Individuals With Changing Habits
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/changes-habits-by-treatment.png){:.left loading="lazy"}
+
+Chart showing individuals with changing habits seeking treatment by gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between changing habits and treatment
+changes_habits_by_treatment = df.groupby(['treatment', 'changes_habits'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+# chart settings
+legend = ['Maybe', 'No', 'Yes']
+label_colors = ['white', 'white', 'white']
+
+# Visualize the relationship between changing habits and treatment
+ax = changes_habits_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Changes Habits', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+### Individuals With Changing Habits by Gender
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/changes-habits-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individuals with changing habits seeking treatment by gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# chart settings
+female_pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+male_pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+legend = ['No', 'Yes']
+label_colors = ['black', 'white']
+
+# set the fig size for the titles
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+fig.supxlabel('Changes Habits')
+
+ax1 = sns.countplot(x='changes_habits', data=df[df['gender'] == 'Female'], hue='treatment', ax=ax1, palette = female_pallete)
+
+# set the location of the legend
+ax1.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor females chart
+ax1.set_xlabel('Female')
+ax1.set_ylabel('Count')
+
+for i, c in enumerate(ax1.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+ax2  = sns.countplot(x='growing_stress', data=df[df['gender'] == 'Male'], hue='treatment', ax=ax2, palette=male_pallete)
+
+# set the location of the legend
+ax2.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor males chart
+ax2.set_xlabel('Male')
+ax2.set_ylabel('Count')
+
+for i, c in enumerate(ax2.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+## Individuals With Care Options
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individuals with care options seeking treatment by gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# Analyze the relationship between care options and treatment
+changes_habits_by_treatment = df.groupby(['treatment', 'care_options'])['treatment'].count().unstack().fillna(0)
+
+# chart settings
+# chart settings
+legend = ['Maybe', 'No', 'Yes']
+label_colors = ['white', 'white', 'white']
+
+# Visualize the relationship between changing habits and treatment
+ax = changes_habits_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Care Options', ylabel='Count')
+
+for i, c in enumerate(ax.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# set the location of the legend
+ax.legend(title='Seeking Treatment', labels=legend, loc='upper center')
+
+# Remove the top and right spines
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
+
+### Individuals With Care Options by Gender
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment-by-gender.png){:.left loading="lazy"}
+
+Chart showing individuals with care options seeking treatment by gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# chart settings
+female_pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+male_pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+legend = ['No', 'Yes']
+label_colors = ['black', 'white']
+
+# set the fig size for the titles
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+fig.supxlabel('Care Options')
+
+ax1 = sns.countplot(x='care_options', data=df[df['gender'] == 'Female'], hue='treatment', ax=ax1, palette = female_pallete)
+
+# set the location of the legend
+ax1.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor females chart
+ax1.set_xlabel('Female')
+ax1.set_ylabel('Count')
+
+for i, c in enumerate(ax1.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+ax2  = sns.countplot(x='care_options', data=df[df['gender'] == 'Male'], hue='treatment', ax=ax2, palette=male_pallete)
+
+# set the location of the legend
+ax2.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor males chart
+ax2.set_xlabel('Male')
+ax2.set_ylabel('Count')
+
+for i, c in enumerate(ax2.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+ </div>
+</details>
+<br/> 
+
