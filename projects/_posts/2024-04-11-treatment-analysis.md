@@ -12,7 +12,7 @@ permalink: /projects/2024-04-11-mental-health-treatment-analysis/
 ---
 # Mental Health Analysis - Treatment
 
-## Individuals Seeking Treatment by Gender
+## Seeking Treatment by Gender
 From the first chart below, we can see that individuals in both genders are about 5x more likely seek treatment.
 
 In the second chart, we can see that males are 4x more likely to not seek treatment compared to females and there is a near even split between both genders seeking treatment;.
@@ -81,7 +81,7 @@ plt.close()
 </details>
 <br/>
 
-## Individuals With Coping Struggles Seeking Treatment
+## Coping Struggles
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/coping-struggles-by-treatment.png){:.left loading="lazy"}
 
@@ -121,7 +121,7 @@ plt.close()
 </details>
 <br/>
 
-### Individuals With Coping Struggles Seeking Treatment by Gender Distribution
+### Coping Struggles by Gender Distribution
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/coping-struggles-by-treatment-by-gender.png){:.left loading="lazy"}
 
@@ -193,7 +193,7 @@ plt.close()
 </details>
 <br/>
 
-## Individuals With Mood Swings by Seeking Treatment
+## Mood Swings
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mood-swings-by-treatment.png){:.left loading="lazy"}
 
@@ -211,7 +211,7 @@ mood_swings_by_treatment = df.groupby(['treatment', 'mood_swings'])['treatment']
 legend = ['Maybe', 'No', 'Yes']
 label_colors = ['white', 'white', 'white']
 
-# Visualize the relationship between social weakness and mental health history
+# Visualize the relationship between mood swings and treatment
 ax = mood_swings_by_treatment.plot(kind='bar', stacked=True, figsize=(10, 6), rot=0, xlabel='Mood Swings', ylabel='Count')
 
 for i, c in enumerate(ax.containers):
@@ -234,7 +234,7 @@ plt.close()
 </details>
 <br/>
 
-### Individuals With Mood Swings Seeking Treatment by Gender Distrubtion
+### Mood Swings by Gender Distrubtion
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mood-swings-by-treatment-by-gender.png){:.left loading="lazy"}
 
@@ -299,8 +299,8 @@ plt.close()
 </details>
 <br/>
 
-## Individuals With Social Weakness
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment-by-gender.png){:.left loading="lazy"}
+## Social Weakness
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with social weakness seeking treatment.
 {:.figcaption}
@@ -339,7 +339,7 @@ plt.close()
 </details>
 <br/>
 
-### Individuals With Social Weakness by Gender
+### Social Weakness by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with social weakness seeking treatment by gender distribution.
@@ -403,7 +403,7 @@ plt.close()
 </details>
 <br/>   
 
-## Individuals Number of Days Indoors
+## Number of Days Indoors
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individual's number of days indoors seeking treatment.
@@ -444,7 +444,7 @@ plt.close()
 </details>
 <br/> 
 
-### IndividualFemales Number of Days Indoors
+### Female Number of Days Indoors
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-female.png){:.left loading="lazy"}
 
 Chart showing female individual's number of days indoors seeking treatment.
@@ -486,7 +486,7 @@ plt.close()
 </details>
 <br/> 
 
-### Individual Males Number of Days Indoors
+### Male Number of Days Indoors
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-male.png){:.left loading="lazy"}
 
 Chart showing male individual's number of days indoors seeking treatment.
@@ -536,7 +536,7 @@ Chart showing individual's occupation seeking treatment.
 <details>
 <summary>Expand to see code used</summary>
 <div markdown="1">
-## Individuals Occupation
+## Occupation
 ```python
 # Analyze the relationship between occupation and treatment
 days_indoors_by_treatment = df.groupby(['treatment', 'days_indoors'])['treatment'].count().unstack().fillna(0)
@@ -569,7 +569,7 @@ plt.close()
 </details>
 <br/> 
 
-### Individuals Occupation by Female
+### Occupation by Female
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment-female.png){:.left loading="lazy"}
 
 Chart showing female individual's occupation seeking treatment.
@@ -610,7 +610,7 @@ plt.close()
 </details>
 <br/> 
 
-### Individuals Occupation by Male
+### Occupation by Male
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment-male.png){:.left loading="lazy"}
 
 Chart showing male individual's occupation seeking treatment.
@@ -651,7 +651,7 @@ plt.close()
 </details>
 <br/> 
 
-## Individuals Work Interest Seeking Treatment
+## Work Interest
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment-by-gender.png){:.left loading="lazy"}
 
@@ -692,7 +692,7 @@ plt.close()
 </details>
 <br/>
 
-### Individuals Work Interest Seeking Treatment by Gender Distrubtion
+### Work Interest by Gender Distrubtion
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment-by-gender.png){:.left loading="lazy"}
 
@@ -757,7 +757,7 @@ plt.close()
 </details>
 <br/>
 
-## Individuals With Growing Stress
+## Growing Stress
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/growing-stress-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with growing stress seeking treatment.
@@ -797,7 +797,7 @@ plt.close()
 </details>
 <br/> 
 
-### Individuals With Growing Stress by Gender
+### Growing Stress by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/growing-stress-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with growing stress seeking treatment by gender distribution.
@@ -861,7 +861,7 @@ plt.close()
 </details>
 <br/> 
 
-## Individuals With Family History
+## Family History
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/family-history-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with family history seeking treatment.
@@ -901,7 +901,7 @@ plt.close()
 </details>
 <br/> 
 
-### Individuals With Family History by Gender
+### Family History by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/family-history-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with family history seeking treatment by gender distribution.
@@ -965,7 +965,7 @@ plt.close()
 </details>
 <br/> 
 
-## Individuals With Mental Health History
+## Mental Health History
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mental-health-history-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with mental health history seeking treatment.
@@ -1005,7 +1005,7 @@ plt.close()
 </details>
 <br/> 
 
-### Individuals With Mental Health History by Gender
+### Mental Health History by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mental-health-history-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with mental health history seeking treatment by gender distribution.
@@ -1069,7 +1069,7 @@ plt.close()
 </details>
 <br/> 
 
-## Individuals With Changing Habits
+## Changing Habits
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/changes-habits-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with changing habits seeking treatment by gender distribution.
@@ -1110,7 +1110,7 @@ plt.close()
 </details>
 <br/> 
 
-### Individuals With Changing Habits by Gender
+### Changing Habits by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/changes-habits-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with changing habits seeking treatment by gender distribution.
@@ -1174,7 +1174,7 @@ plt.close()
 </details>
 <br/> 
 
-## Individuals With Care Options
+## Care Options
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with care options seeking treatment by gender distribution.
@@ -1216,7 +1216,7 @@ plt.close()
 <br/> 
 
 
-### Individuals With Care Options by Gender
+### Care Options by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with care options seeking treatment by gender distribution.
