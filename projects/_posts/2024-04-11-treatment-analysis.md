@@ -12,6 +12,26 @@ permalink: /projects/2024-04-11-mental-health-treatment-analysis/
 ---
 # Mental Health Analysis - Treatment
 
+* this unordered seed list will be replaced by the toc
+{:toc}
+
+## Introduction
+For this section on treatment, I wanted to visualise if seeking treatment for mental health has any effect on other categories.
+
+- **Coping struggles** - Do individuals have reduced coping struggles having treatment?
+- **Mood swings** - Are individuals having moods swings with treatment?
+- **Social weakness** - Do individuals have social weakness with treatment?
+- **Number of days indoors** - Is the number of days indoors reduced having seeking streatment?
+- **Occupation** - An overview of occupation and number of individuals seeking treatment
+- **Work interest** - Does having treatment increase work interest?
+- **Growing stress** - Has treatment had an impact on growing stress?
+- **Family history** - Is there a link to family history of mental health issues?
+- **Mental health history** - Does the individual have a history of mental health?
+- **Changing habits** - Does seeking treatment alter a change in habits?
+
+I believe a lot of these factors are related such as **Occupation**, **Growing Stress** and **Work Interest**. Some occupations can be very stressful, with some occupations, the individual may have a serious lack of work interest.
+
+I want to complete some further analysis to see if there are links between the categories.
 ## Seeking Treatment by Gender
 From the first chart below, we can see that individuals in both genders are about 5x more likely seek treatment.
 
