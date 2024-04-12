@@ -149,7 +149,9 @@ plt.close()
 <br/>
 
 ### Coping Struggles by Gender
+The ratio between genders, both seeking and not seeking treatment are very similar which you can clearly see based onj the previous chart.
 
+What is interesting however, is that females are more likely to seek treatment than males and that females who are haveing coping struggles are seeking treatment.
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/coping-struggles-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with coping struggles by gender.
