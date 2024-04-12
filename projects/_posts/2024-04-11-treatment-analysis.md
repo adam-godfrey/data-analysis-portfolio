@@ -104,6 +104,8 @@ plt.close()
 <br/>
 
 ## Coping Struggles
+For this section I wanted to see if seeking treatment has any effect on a person's coping struggles.
+
 Here, I found this very interesting. There is a 50/50 split for individuals with coping struggles. 
 
 For the half that doesn't have coping struggles, half of that again aren't seeking treatment so what could affect this? Could it be their work interest in that they enjoy their occupation, or have they changed habits? For the other half who are seeking treatment, it could be seeking treatment helps with their coping abilities.
@@ -223,7 +225,9 @@ plt.close()
 <br/>
 
 ## Mood Swings
+For this section I wanted to see if seeking treatment has any effect on a person's mood swings.
 
+It's interesting to see that it is nearly very evenly split between all possible values being Yes, No and Maybe and seeking treatment doesn't seem to have any effect on mood swings.
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mood-swings-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with mood swings.
@@ -264,6 +268,11 @@ plt.close()
 <br/>
 
 ### Mood Swings by Gender
+What is very intersting indeed is females who aren't seeking treatment are more likely to get mood swings by up to 50% compared to females who are seeking treatment.
+
+Males on the other hand are prettu well balanced when it comes to mood swings but there are slightly more prone to individuals who are not seeking treatment.
+
+This goes to show both genders are more likely to suffer with mood swings if they don't seek treatment.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mood-swings-by-treatment-by-gender.png){:.left loading="lazy"}
 
