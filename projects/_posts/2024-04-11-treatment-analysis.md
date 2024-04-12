@@ -633,6 +633,11 @@ plt.close()
 <br/> 
 
 ## Occupation
+For this section, I wanted to get an idea of occupations and how mental health affects individuals.
+
+We can see from the following chart that housewives are more likely to suffer with mental health issues closely followed by students. Could there be a link to both these types of people when it comes to some of the other categories such as staying indoors?
+
+Again, there is a near 50/50 split between individuals seeking treatment and not seeking treatment.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment.png){:.left loading="lazy"}
 
@@ -674,6 +679,8 @@ plt.close()
 <br/> 
 
 ### Occupation by Female
+Not surprisingly with the females, we can see that housewives and students are the highest with around 45% seeking treatment.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment-female.png){:.left loading="lazy"}
 
 Chart showing female individual's occupation.
@@ -715,6 +722,10 @@ plt.close()
 <br/> 
 
 ### Occupation by Male
+Again, with the males, the housewife occupation has the highest count closely followed by corporate and then student.
+
+Compared to females, the corporate occupation is vastly higher in terms of mental health issues. It would be good so get some analysis on Work Interest for Corporate occupation for the male population to see what they show.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment-male.png){:.left loading="lazy"}
 
 Chart showing male individual's occupation.

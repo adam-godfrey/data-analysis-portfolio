@@ -12,8 +12,18 @@ redirect_from:
 
 <!--author-->
 
+From there I studied at [University of Exeter](https://www.exeter.ac.uk/) and I gained a degree in Computer Science.
+
+Whilst I was completing my studies, I worked in the evenings at [Gregory Distribution](https://gdl.uk.com) in the office and after completing my studies, I went on to gain a role internally as Development Project Analyst who heavily used Excel spreadhseet software.
+
+Because I had a passion for web development, I worked as a web developer for about 10 years using PHP, HTML, CSS and using frameworks such as Laravel, Vue.js, JQuery and SASS.
+
+Fast forward onto now and I wanted to exceed my knowledge and skills even further so I decided to complete a free course in Cybersecurity provided by [Cisco](https://skillsforall.com/career-path/cybersecurity?courseLang=en-US). From this I gained an interest in Data Science so recently completed a course with [Cambridge Spark](https://www.cambridgespark.com/) in Data Analysis.
+
+In my spare time, I like to produce House music as I have been a DJ for over 30 years and have had most of my tracks release on record labels.
+
 ## Certifications
-I wanted to increase my knowledge and better myself so I decided to complete a free course in Cybersecurity provided by [Cisco](https://skillsforall.com/career-path/cybersecurity?courseLang=en-US)
+
 <div id="certifications">
   <div class="row">
     <div class="column">
