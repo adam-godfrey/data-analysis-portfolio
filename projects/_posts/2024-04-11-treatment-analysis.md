@@ -404,7 +404,7 @@ plt.close()
 <br/>   
 
 ## Number of Days Indoors
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-by-gender.png){:.left loading="lazy"}
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individual's number of days indoors.
 {:.figcaption}
