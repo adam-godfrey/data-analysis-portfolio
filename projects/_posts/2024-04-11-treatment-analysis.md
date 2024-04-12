@@ -29,13 +29,15 @@ For this section on treatment, I wanted to visualise if seeking treatment for me
 - **Mental health history** - Does the individual have a history of mental health?
 - **Changing habits** - Does seeking treatment alter a change in habits?
 
-I believe a lot of these factors are related such as **Occupation**, **Growing Stress** and **Work Interest**. Some occupations can be very stressful, with some occupations, the individual may have a serious lack of work interest.
+I believe a lot of these factors are related such as **Occupation**, **Growing Stress** and **Work Interest**. Some occupations can be very stressful, with some occupations the individual may have a serious lack of work interest.
 
 I want to complete some further analysis to see if there are links between the categories.
 ## Seeking Treatment by Gender
+First of all, I wanted to get an idea of the distribution between genders who are seeking treatment. I already know from the [initial analysis](https://adam-godfrey.github.io/data-analysis-portfolio/projects/2024-04-06-mental-health/) that the gender ratio of individuals who completed the study was 4:1 males vs. females. so I was expecting a larger amount of values for males.
+
 From the first chart below, we can see that individuals in both genders are about 5x more likely seek treatment.
 
-In the second chart, we can see that males are 4x more likely to not seek treatment compared to females and there is a near even split between both genders seeking treatment;.
+In the second chart, we can see that males are 4x more likely to not seek treatment compared to females and there is a near even split between both genders seeking treatment. While we can see that bother genders are evenly split seeking treatment, it makes me wonder why 70% of males don't seek treatment. 
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/treatment-by-gender.png){:.left loading="lazy"}
 
@@ -102,6 +104,11 @@ plt.close()
 <br/>
 
 ## Coping Struggles
+Here, I found this very interesting. There is a 50/50 split for individuals with coping struggles. 
+
+For the half that doesn't have coping struggles, half of that again aren't seeking treatment so what could affect this? Could it be their work interest in that they enjoy their occupation, or have they changed habits? For the other half who are seeking treatment, it could be seeking treatment helps with their coping abilities.
+
+Back to the individuals with coping struggles, 50% aren't seeking treatment. Why could this be? And for the other 50% who are seeking treatment who are still struggling to cope, what could be the cause? Could it be their occupation or another one of the categories?
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/coping-struggles-by-treatment.png){:.left loading="lazy"}
 
