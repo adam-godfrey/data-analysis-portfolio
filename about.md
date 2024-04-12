@@ -13,7 +13,9 @@ redirect_from:
 
 <!--author-->
 
-## Hydejack
+## Certifications
+
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="34d2eb8a-a313-4349-9d66-5fe08caea6b3" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 
 A boutique Jekyll theme for hackers, nerds, and academics.  
 {:.lead}

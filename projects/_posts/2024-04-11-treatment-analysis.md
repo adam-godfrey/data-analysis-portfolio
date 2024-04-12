@@ -586,7 +586,7 @@ plt.close()
 <br/> 
 
 ### Male Number of Days Indoors
-Unlike the females, males are more likely to seek treatment anbd this clearly shows.
+Unlike the females, males are more likely to seek treatment and this clearly shows.
 
 What I would've expected to see is a higher increase in lower number of days indoors such as 'Go out every day' althought 1-14 days has a high value count.
 
