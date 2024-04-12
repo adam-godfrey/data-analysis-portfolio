@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Mental Health Study
+title:      Mental Health Analysis - Treatment
 categories: [projects]
 image: 
   path: /assets/img/mental-health/mental-health.png
@@ -280,6 +280,71 @@ ax2  = sns.countplot(x='mood_swings', data=df[df['gender'] == 'Male'], hue='trea
 ax2.legend(title='Treatment', labels=legend, loc='upper left')
 # set the xlabel and ylabelfor males chart
 ax2.set_xlabel('Mmale')
+ax2.set_ylabel('Count')
+
+for i, c in enumerate(ax2.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax2.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+plt.show()
+plt.close()
+```
+</div>
+</details>
+<br/>
+
+## Individuals Work Interest Seeking Treatment by Gender Distrubtion
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment.png){:.left loading="lazy"}
+
+Chart showing individuals with mood swings by seeking treatment by gender distribution.
+{:.figcaption}
+
+<details>
+<summary>Expand to see code used</summary>
+<div markdown="1">
+```python
+# chart settings
+female_pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+male_pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+legend = ['No', 'Yes']
+label_colors = ['black', 'white']
+
+# set the fig size for the titles
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+fig.supxlabel('Work Interest')
+
+ax1 = sns.countplot(x='work_interest', data=df[df['gender'] == 'Female'], hue='treatment', ax=ax1, palette = female_pallete)
+
+# set the location of the legend
+ax1.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor females chart
+ax1.set_xlabel('Female')
+ax1.set_ylabel('Count')
+
+for i, c in enumerate(ax1.containers):
+    # Optional: if the segment is small or 0, customize the labels
+    labels = [f'{v.get_height():.0f}' if v.get_height() > 0 else '' for v in c]
+    # remove the labels parameter if it's not needed for customized labels
+    ax1.bar_label(c, labels=labels, label_type='center', color=label_colors[i])
+
+# Remove the top and right spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+ax2  = sns.countplot(x='work_interest', data=df[df['gender'] == 'Male'], hue='treatment', ax=ax2, palette=male_pallete)
+
+# set the location of the legend
+ax2.legend(title='Treatment', labels=legend, loc='upper left')
+# set the xlabel and ylabelfor males chart
+ax2.set_xlabel('Male')
 ax2.set_ylabel('Count')
 
 for i, c in enumerate(ax2.containers):
