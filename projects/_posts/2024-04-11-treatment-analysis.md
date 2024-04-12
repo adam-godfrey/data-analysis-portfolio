@@ -85,7 +85,7 @@ plt.close()
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/coping-struggles-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individuals with coping struggles seeking treatment.
+Chart showing individuals with coping struggles.
 {:.figcaption}
 
 <details>
@@ -121,11 +121,11 @@ plt.close()
 </details>
 <br/>
 
-### Coping Struggles by Gender Distribution
+### Coping Struggles by Gender
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/coping-struggles-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals seeking treatment by gender.
+Chart showing individuals with coping struggles by gender.
 {:.figcaption}
 
 <details>
@@ -197,7 +197,7 @@ plt.close()
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mood-swings-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individuals with mood swings seeking treatment.
+Chart showing individuals with mood swings.
 {:.figcaption}
 
 <details>
@@ -234,11 +234,11 @@ plt.close()
 </details>
 <br/>
 
-### Mood Swings by Gender Distrubtion
+### Mood Swings by Gender
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mood-swings-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with mood swings seeking treatment by gender distribution.
+Chart showing individuals with mood swings by gender.
 {:.figcaption}
 
 <details>
@@ -302,7 +302,7 @@ plt.close()
 ## Social Weakness
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individuals with social weakness seeking treatment.
+Chart showing individuals with social weakness.
 {:.figcaption}
 
 <details>
@@ -342,7 +342,7 @@ plt.close()
 ### Social Weakness by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/social-weakness-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with social weakness seeking treatment by gender distribution.
+Chart showing individuals with social weakness by gender.
 {:.figcaption}
 
 <details>
@@ -406,7 +406,7 @@ plt.close()
 ## Number of Days Indoors
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individual's number of days indoors seeking treatment.
+Chart showing individual's number of days indoors.
 {:.figcaption}
 
 <details>
@@ -447,7 +447,7 @@ plt.close()
 ### Female Number of Days Indoors
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-female.png){:.left loading="lazy"}
 
-Chart showing female individual's number of days indoors seeking treatment.
+Chart showing female individual's number of days indoors.
 {:.figcaption}
 
 <details>
@@ -489,7 +489,7 @@ plt.close()
 ### Male Number of Days Indoors
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/days-indoors-by-treatment-male.png){:.left loading="lazy"}
 
-Chart showing male individual's number of days indoors seeking treatment.
+Chart showing male individual's number of days indoors.
 {:.figcaption}
 
 <details>
@@ -530,7 +530,7 @@ plt.close()
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individual's occupation seeking treatment.
+Chart showing individual's occupation.
 {:.figcaption}
 
 <details>
@@ -572,7 +572,7 @@ plt.close()
 ### Occupation by Female
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment-female.png){:.left loading="lazy"}
 
-Chart showing female individual's occupation seeking treatment.
+Chart showing female individual's occupation.
 {:.figcaption}
 
 <details>
@@ -613,7 +613,7 @@ plt.close()
 ### Occupation by Male
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/occupation-by-treatment-male.png){:.left loading="lazy"}
 
-Chart showing male individual's occupation seeking treatment.
+Chart showing male individual's occupation.
 {:.figcaption}
 
 <details>
@@ -655,7 +655,7 @@ plt.close()
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individual's work interest by seeking treatment.
+Chart showing individual's work interest.
 {:.figcaption}
 
 <details>
@@ -696,7 +696,7 @@ plt.close()
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individual's work interest seeking treatment by gender distribution.
+Chart showing individual's work interest by gender.
 {:.figcaption}
 
 <details>
@@ -760,7 +760,7 @@ plt.close()
 ## Growing Stress
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/growing-stress-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individuals with growing stress seeking treatment.
+Chart showing individuals with growing stress.
 {:.figcaption}
 
 <details>
@@ -800,7 +800,7 @@ plt.close()
 ### Growing Stress by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/growing-stress-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with growing stress seeking treatment by gender distribution.
+Chart showing individuals with growing stress by gender.
 {:.figcaption}
 
 <details>
@@ -864,7 +864,7 @@ plt.close()
 ## Family History
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/family-history-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individuals with family history seeking treatment.
+Chart showing individuals with family history.
 {:.figcaption}
 
 <details>
@@ -904,7 +904,7 @@ plt.close()
 ### Family History by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/family-history-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with family history seeking treatment by gender distribution.
+Chart showing individuals with family history by gender.
 {:.figcaption}
 
 <details>
@@ -968,7 +968,7 @@ plt.close()
 ## Mental Health History
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mental-health-history-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individuals with mental health history seeking treatment.
+Chart showing individuals with mental health history.
 {:.figcaption}
 
 <details>
@@ -1008,7 +1008,7 @@ plt.close()
 ### Mental Health History by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mental-health-history-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with mental health history seeking treatment by gender distribution.
+Chart showing individuals with mental health history by gender.
 {:.figcaption}
 
 <details>
@@ -1072,7 +1072,7 @@ plt.close()
 ## Changing Habits
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/changes-habits-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individuals with changing habits seeking treatment by gender distribution.
+Chart showing individuals with changing habits.
 {:.figcaption}
 
 <details>
@@ -1113,7 +1113,7 @@ plt.close()
 ### Changing Habits by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/changes-habits-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with changing habits seeking treatment by gender distribution.
+Chart showing individuals with changing habits by gender.
 {:.figcaption}
 
 <details>
@@ -1175,9 +1175,9 @@ plt.close()
 <br/> 
 
 ## Care Options
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment-by-gender.png){:.left loading="lazy"}
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment.png){:.left loading="lazy"}
 
-Chart showing individuals with care options seeking treatment by gender distribution.
+Chart showing individuals with care options.
 {:.figcaption}
 
 <details>
@@ -1219,7 +1219,7 @@ plt.close()
 ### Care Options by Gender
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with care options seeking treatment by gender distribution.
+Chart showing individuals with care options gender.
 {:.figcaption}
 
 <details>
