@@ -772,7 +772,7 @@ For this section I wanted to visualise if treatment has any effect on work inter
 We can clearly see an even split between each choice, however what I found very surprising is only 15% are seeking treatment and also have a positive work interest. There is another 15% who have a positive work interest who don’t seek treatment.
 
 Hardly surprising is people who have a negative interest in work with 17% for seeking and non-seeking treatment and 17.5% of people have a neutral work interest.
-I would have thought a much higher count for a positive work interest if seeking treatment but I suspect that other factors are at play such as coping struggles and possible social weakness.
+I would have thought a much higher count for a positive work interest if seeking treatment but I suspect that other factors are at play such as coping struggles, occupation and possible social weakness.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment.png){:.left loading="lazy"}
 
