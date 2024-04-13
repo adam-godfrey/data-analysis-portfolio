@@ -1194,6 +1194,12 @@ plt.close()
 <br/> 
 
 ## Changing Habits
+This section I found the most interesting of them all. Although again there is an even split between those seeking treatment and not, what I did find surprising was a vast number of individuals had changed their habits with nearly 19% for each. 
+
+I was quite surprised to see that 15% for each seeking and not seeking treatment were those individuals who hadn’t changed their habits.
+
+I would be interested to see comparing this data with other factors to see if changing habits and seeking treatment affects any other of the variables.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/changes-habits-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with changing habits.
@@ -1234,6 +1240,10 @@ plt.close()
 <br/> 
 
 ### Changing Habits by Gender
+At a quick glance, I can see the male gender following closely with the previous chart except it’s the ‘Maybe’s taking the lead and the female gender following the previous chart more closely with a lot of people changing their habits.
+
+It would be interesting to find out why so many females change their habits but won’t seek treatment.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/changes-habits-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with changing habits by gender.
