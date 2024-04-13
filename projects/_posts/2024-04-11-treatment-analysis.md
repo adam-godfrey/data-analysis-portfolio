@@ -767,6 +767,12 @@ plt.close()
 <br/> 
 
 ## Work Interest
+For this section I wanted to visualise if treatment has any effect on work interest.
+
+We can clearly see an even split between each choice, however what I found very surprising is only 15% are seeking treatment and also have a positive work interest. There is another 15% who have a positive work interest who don’t seek treatment.
+
+Hardly surprising is people who have a negative interest in work with 17% for seeking and non-seeking treatment and 17.5% of people have a neutral work interest.
+I would have thought a much higher count for a positive work interest if seeking treatment but I suspect that other factors are at play such as coping struggles and possible social weakness.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment.png){:.left loading="lazy"}
 
@@ -808,6 +814,9 @@ plt.close()
 <br/>
 
 ### Work Interest by Gender Distrubtion
+Both male and female genders follow the pattern from the previous chart with a positive work interest being the lowest.
+
+Again, the females are more likely to not seek treatment and this clearly shows and what I found intersting with the female gender is that for each work interest, they are all about equal. With the male gender, the pattern of work interest closely follows the previous chart.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/work-interest-by-treatment-by-gender.png){:.left loading="lazy"}
 
