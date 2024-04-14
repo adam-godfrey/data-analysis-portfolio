@@ -994,6 +994,9 @@ plt.close()
 <br/> 
 
 ## Family History
+This is another interesting section as the chart clearly shows the vast majority don’t have a family history of mental health. A massive 60% of people surveyed said they don’t have family history with only 36% of them are seeking treatment.
+
+As for the other 40% of people who do have a family history, a massive 73% of them are seeking treatment.
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/family-history-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with family history.
@@ -1034,6 +1037,10 @@ plt.close()
 <br/> 
 
 ### Family History by Gender
+This chart really surprised me greatly. A huge 60% of females have a family history of mental health yet only 18% of them are seeking treatment. It makes me wonder why females are more reluctant to seek treatment over males.
+
+In contrast with the female gender, only 35% of males have a family history with 70% of those are actually seeking treatment.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/family-history-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with family history by gender.
