@@ -1308,6 +1308,14 @@ plt.close()
 <br/> 
 
 ## Care Options
+This section is probably the most interesting of them all as apart from growing stress, there is no even split between seeking treatment or not but also in terms of the care options itself.
+
+We can see that no care options are the resounding highest number with 41% of individuals not having care options and 17% of individuals overall are seeking treatment.
+
+We can also see that 23% of individuals do have care options and are seeking treatment also.  Of the total amount of individuals with care options, 71% of them are seeking treatment.
+
+As for the people who are not sure, only 40% of them are seeking treatment.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with care options.
@@ -1347,11 +1355,15 @@ plt.close()
 </details>
 <br/> 
 
-
 ### Care Options by Gender
+What is surprising with this chart as it doesn't follow the pattern of the previous chart at all.
+
+We can see from the female gender that 40% overall do have care options and from that only 17% of them are seeking treatment. This is the largest gap between seeking and not seeking treatment.
+
+The male gender on the other hand, are quite different. 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with care options gender.
+Chart showing individuals with care options gender. The majority don't have care options but still do seek treatment but for the 30% of males with care options, 67% of them do seek treatment.
 {:.figcaption}
 
 <details>
