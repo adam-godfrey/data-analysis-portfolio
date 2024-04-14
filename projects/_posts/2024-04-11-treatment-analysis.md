@@ -199,13 +199,10 @@ Chart showing individuals with coping struggles by gender.
 <summary>Expand to see code used</summary>
 <div markdown="1">
 ```python
-# Analyze the relationship between coping struggles and treatment
-coping_struggles_by_treatment_yes = df[df['coping_struggles'] == 'Yes'].groupby(['treatment', 'gender'])['gender'].count().unstack().fillna(0)
-coping_struggles_by_treatment_no = df[df['coping_struggles'] == 'No'].groupby(['treatment', 'gender'])['gender'].count().unstack().fillna(0)
-
 # chart settings
-colors = ['pink', 'steelblue'] 
-gender = ['Female', 'Male']
+female_pallete = sns.color_palette(['#FFC0CB', '#E37383'])
+male_pallete = sns.color_palette(['#90E0EF', '#4682b4'])
+legend = ['No', 'Yes']
 label_colors = ['black', 'white']
 
 # set the fig size for the titles
@@ -213,10 +210,11 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
 
 fig.supxlabel('Coping Struggles')
 
-ax1 = coping_struggles_by_treatment_no.plot(kind='bar', ax=ax1, width=1, xlabel='No', ylabel='Seeking Treatment', color=colors)
+ax1 = sns.countplot(x='coping_struggles', data=df[df['gender'] == 'Female'], hue='treatment', ax=ax1, palette = female_pallete)
+
 
 # set the location of the legend
-ax1.legend(title='Gender', labels=gender, loc='upper left')
+ax1.legend(title='Gender', labels=gender, loc='upper right')
 
 for i, c in enumerate(ax1.containers):
     # Optional: if the segment is small or 0, customize the labels
@@ -233,10 +231,10 @@ for label in ax1.get_xticklabels():
 ax1.spines['top'].set_visible(False)
 ax1.spines['right'].set_visible(False)
 
-ax2 = coping_struggles_by_treatment_yes.plot(kind='bar', ax=ax2, width=1, xlabel='Yes', ylabel='Seeking Treatment', color=colors)
+ax2 = sns.countplot(x='coping_struggles', data=df[df['gender'] == 'Male'], hue='treatment', ax=ax2, palette = male_pallete)
 
 # set the location of the legend
-ax2.legend(title='Gender', labels=gender, loc='upper left')
+ax2.legend(title='Gender', labels=gender, loc='lower center')
 
 for i, c in enumerate(ax2.containers):
     # Optional: if the segment is small or 0, customize the labels
@@ -1105,6 +1103,8 @@ plt.close()
 <br/> 
 
 ## Mental Health History
+From the following chart we can a fairly even distribution with individuals with no mental health history slightly ahead. Again there is an even distrubtion to seeking treatment.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mental-health-history-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with mental health history.
@@ -1145,6 +1145,8 @@ plt.close()
 <br/> 
 
 ### Mental Health History by Gender
+The female gender have the highest count for maybe having mental health history whereas the males have a higher count for not having a mental health history.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/mental-health-history-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with mental health history by gender.
@@ -1439,3 +1441,14 @@ plt.close()
 </details>
 <br/> 
 
+## Key Findings
+- Females are more likely to NOT seek treatment.
+- There is an even split in numbers for those seeking treatment and not seeking treatment.
+- By gender, there is a 50/50 split for those seeking treatment.
+- Females have slightly more coping struggles than males.
+- Housewife occupation has the highest count in numbers.
+- Females are more likely to have growing stress.
+- Females re more likely to have family history and males more likely to not have family history.
+
+## Conclusion
+I would like to perform additional analysis on the other variables to compare with the analysis I have created here to see if there is any factors that are influencing these results.
