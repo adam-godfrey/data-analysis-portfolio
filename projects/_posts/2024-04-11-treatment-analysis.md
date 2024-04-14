@@ -882,6 +882,10 @@ plt.close()
 <br/>
 
 ## Growing Stress
+What I wanted to see in this section is if seeking treatment has any bearing on growing stress. This chart shows a lot of individuals don’t have growing stress but only marginally. It is also very nearly split down the middle of seeking treatment or not.
+
+There still is a high percentage of 32% of people with growing stress.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/growing-stress-by-treatment.png){:.left loading="lazy"}
 
 Chart showing individuals with growing stress.
@@ -922,6 +926,10 @@ plt.close()
 <br/> 
 
 ### Growing Stress by Gender
+What is interesting with the females is 40% of them have growing stress compared to yes and maybe with 30% each. Of those who have growing stress, only 30% of them are seeking treatment.
+
+The males however, seem to be not sure if they have growing stress but only marginally.
+
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/growing-stress-by-treatment-by-gender.png){:.left loading="lazy"}
 
 Chart showing individuals with growing stress by gender.
@@ -1363,7 +1371,7 @@ We can see from the female gender that 40% overall do have care options and from
 The male gender on the other hand, are quite different. 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-11/care-options-by-treatment-by-gender.png){:.left loading="lazy"}
 
-Chart showing individuals with care options gender. The majority don't have care options but still do seek treatment but for the 30% of males with care options, 67% of them do seek treatment.
+Chart showing individuals with care options gender. The majority don't have care options but still do seek treatment but for the 30% of males with care options, 68% of them do seek treatment.
 {:.figcaption}
 
 <details>
