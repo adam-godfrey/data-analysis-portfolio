@@ -1202,7 +1202,7 @@ plt.close()
 <br/> 
 
 ## Changing Habits
-This section I found the most interesting of them all. Although again there is an even split between those seeking treatment and not, what I did find surprising was a vast number of individuals had changed their habits with nearly 19% for each. 
+This section I found the most interesting of them all. Although again there is an even split between those seeking treatment and not, what I did find surprising was a vast number of individuals had changed their habits with nearly 19% overall for each. 
 
 I was quite surprised to see that 15% for each seeking and not seeking treatment were those individuals who hadn’t changed their habits.
 
