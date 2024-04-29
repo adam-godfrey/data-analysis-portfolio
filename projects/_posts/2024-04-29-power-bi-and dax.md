@@ -98,6 +98,13 @@ SUMMARIZECOLUMNS (
 )
 ```
 
+| MentalHealthDataset[Country] | United States | Poland | Australia | Canada | United Kingdom | South Africa | Sweden | New Zealand | Netherlands | India | Belgium | Ireland | France | Portugal | Brazil | Costa Rica | Russia | Germany | Switzerland | Finland | Israel | Italy | Bosnia and Herzegovina | Singapore | Nigeria | Croatia | Thailand | Denmark | Mexico | Greece | Moldova | Colombia | Georgia | Czech Republic | Philippines |
+|------------------------------|---------------|--------|-----------|--------|----------------|--------------|--------|-------------|-------------|-------|---------|---------|--------|----------|--------|------------|--------|---------|-------------|---------|--------|-------|------------------------|-----------|---------|---------|----------|---------|--------|--------|---------|----------|---------|----------------|-------------|
+| [Male]                       | 133770        | 390    | 4290      | 13650  | 43680          | 1560         | 1950   | 1560        | 5460        | 2340  | 390     | 4680    | 2340   | 390      | 2340   | 390        | 780    | 4680    | 1560        | 390     | 1560   | 1560  | 390                    | 780       | 390     | 390     | 390      | 780     | 390    | 780    | 390     | 390      | 390     | 390            | 390         |
+| [Female]                     | 34286         | 434    | 1736      | 3906   | 6944           | 434          | 868    | 434         | 434         | 434   | 434     | 868     |        |          |        |            |        |         |             |         |        |       |                        |           |         |         |          |         |        |        |         |          |         |                |             |
+|                              |               |        |           |        |                |              |        |             |             |       |         |         |        |          |        |            |        |         |             |         |        |       |                        |           |         |         |          |         |        |        |         |          |         |                |             |
+|                              |               |        |           |        |                |              |        |             |             |       |         |         |        |          |        |            |        |         |             |         |        |       |                        |           |         |         |          |         |        |        |         |          |         |                |             |
+
 | MentalHealthDataset[Country] | [Male] | [Female] |
 | United States                | 133770 |    34286 |
 | Poland                       |    390 |      434 |  
@@ -134,3 +141,4 @@ SUMMARIZECOLUMNS (
 | Georgia                      |    390 |          |  
 | Czech Republic               |    390 |          |  
 | Philippines                  |    390 |          |  
+
