@@ -91,6 +91,11 @@ I chose a similar chart and added a card to the chart to show the values. By sel
 
 I also added another chart to show the overall gender distribution for each country relative to the gender distribution of the whole dataset which again update to show the selected country.
 
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/gender-by-country.png){:.centered loading="lazy"}
+
+Chart showing gender distribution by country.
+{:.figcaption}
+
 ```html
 DEFINE
     MEASURE MentalHealthDataset[Male] = CALCULATE ( COUNTROWS ( MentalHealthDataset ), MentalHealthDataset[Gender] = "Male" )
@@ -102,7 +107,3 @@ SUMMARIZECOLUMNS (
     "Female", [Female]
 )
 ```
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/gender-by-country.png){:.centered loading="lazy"}
-
-Chart showing gender distribution by country.
-{:.figcaption}
