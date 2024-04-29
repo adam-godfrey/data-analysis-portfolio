@@ -81,3 +81,56 @@ After removing rows that have blank values, I reran the code above and got the f
 | Female                      |          | 51212        |
 | Male                        |          | 235950       |
 |                             |          | 287162       |
+
+## Data Visualisations
+
+### Distribution of Country
+
+```
+DEFINE
+    MEASURE MentalHealthDataset[Male] = CALCULATE ( COUNTROWS ( MentalHealthDataset ), MentalHealthDataset[Gender] = "Male" )
+    MEASURE MentalHealthDataset[Female] = CALCULATE ( COUNTROWS ( MentalHealthDataset ), MentalHealthDataset[Gender] = "Female" )
+EVALUATE
+SUMMARIZECOLUMNS (
+    MentalHealthDataset[Country],
+    "Male", [Male],
+    "Female", [Female]
+)
+```
+
+| MentalHealthDataset[Country] | [Male] | [Female] |
+| United States                | 133770 |    34286 |
+| Poland                       |    390 |      434 |  
+| Australia                    |   4290 |     1736 |
+| Canada                       |  13650 |     3906 |
+| United Kingdom               |  43680 |     6944 |
+| South Africa                 |   1560 |      434 |
+| Sweden                       |   1950 |      868 |
+| New Zealand                  |   1560 |      434 |
+| Netherlands                  |   5460 |      434 |
+| India                        |   2340 |      434 |
+| Belgium                      |    390 |      434 |
+| Ireland                      |   4680 |      868 |
+| France                       |   2340 |          |  
+| Portugal                     |    390 |          | 
+| Brazil                       |   2340 |          |  
+| Costa Rica                   |    390 |          | 
+| Russia                       |    780 |          | 
+| Germany                      |   4680 |          |    
+| Switzerland                  |   1560 |          |    
+| Finland                      |    390 |          | 
+| Israel                       |   1560 |          |    
+| Italy                        |   1560 |          |    
+| Bosnia and Herzegovina       |    390 |          | 
+| Singapore                    |    780 |          | 
+| Nigeria                      |    390 |          | 
+| Croatia                      |    390 |          | 
+| Thailand                     |    390 |          | 
+| Denmark                      |    780 |          | 
+| Mexico                       |    390 |          |  
+| Greece                       |    780 |          |  
+| Moldova                      |    390 |          |  
+| Colombia                     |    390 |          |  
+| Georgia                      |    390 |          |  
+| Czech Republic               |    390 |          |  
+| Philippines                  |    390 |          |  
