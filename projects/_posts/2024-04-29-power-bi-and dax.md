@@ -85,8 +85,13 @@ After removing rows that have blank values, I reran the code above and got the f
 ## Data Visualisations
 
 ### Distribution of Country
+I already knew from my previous analysis about the country distribution, however I wanted to see if I could visualise this better.
 
-```
+I chose a similar chart and added a card to the chart to show the values. By selecting a country from the chart, the card values update to show the selected country and the gender distribution within that country.
+
+I also added another chart to show the overall gender distribution for each country relative to the gender distribution of the whole dataset which again update to show the selected country.
+
+```html
 DEFINE
     MEASURE MentalHealthDataset[Male] = CALCULATE ( COUNTROWS ( MentalHealthDataset ), MentalHealthDataset[Gender] = "Male" )
     MEASURE MentalHealthDataset[Female] = CALCULATE ( COUNTROWS ( MentalHealthDataset ), MentalHealthDataset[Gender] = "Female" )
@@ -97,48 +102,7 @@ SUMMARIZECOLUMNS (
     "Female", [Female]
 )
 ```
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/gender-by-country.png){:.centered loading="lazy"}
 
-| MentalHealthDataset[Country] | United States | Poland | Australia | Canada | United Kingdom | South Africa | Sweden | New Zealand | Netherlands | India | Belgium | Ireland | France | Portugal | Brazil | Costa Rica | Russia | Germany | Switzerland | Finland | Israel | Italy | Bosnia and Herzegovina | Singapore | Nigeria | Croatia | Thailand | Denmark | Mexico | Greece | Moldova | Colombia | Georgia | Czech Republic | Philippines |
-|------------------------------|---------------|--------|-----------|--------|----------------|--------------|--------|-------------|-------------|-------|---------|---------|--------|----------|--------|------------|--------|---------|-------------|---------|--------|-------|------------------------|-----------|---------|---------|----------|---------|--------|--------|---------|----------|---------|----------------|-------------|
-| [Male]                       | 133770        | 390    | 4290      | 13650  | 43680          | 1560         | 1950   | 1560        | 5460        | 2340  | 390     | 4680    | 2340   | 390      | 2340   | 390        | 780    | 4680    | 1560        | 390     | 1560   | 1560  | 390                    | 780       | 390     | 390     | 390      | 780     | 390    | 780    | 390     | 390      | 390     | 390            | 390         |
-| [Female]                     | 34286         | 434    | 1736      | 3906   | 6944           | 434          | 868    | 434         | 434         | 434   | 434     | 868     |        |          |        |            |        |         |             |         |        |       |                        |           |         |         |          |         |        |        |         |          |         |                |             |
-|                              |               |        |           |        |                |              |        |             |             |       |         |         |        |          |        |            |        |         |             |         |        |       |                        |           |         |         |          |         |        |        |         |          |         |                |             |
-|                              |               |        |           |        |                |              |        |             |             |       |         |         |        |          |        |            |        |         |             |         |        |       |                        |           |         |         |          |         |        |        |         |          |         |                |             |
-
-| MentalHealthDataset[Country] | [Male] | [Female] |
-| United States                | 133770 |    34286 |
-| Poland                       |    390 |      434 |  
-| Australia                    |   4290 |     1736 |
-| Canada                       |  13650 |     3906 |
-| United Kingdom               |  43680 |     6944 |
-| South Africa                 |   1560 |      434 |
-| Sweden                       |   1950 |      868 |
-| New Zealand                  |   1560 |      434 |
-| Netherlands                  |   5460 |      434 |
-| India                        |   2340 |      434 |
-| Belgium                      |    390 |      434 |
-| Ireland                      |   4680 |      868 |
-| France                       |   2340 |          |  
-| Portugal                     |    390 |          | 
-| Brazil                       |   2340 |          |  
-| Costa Rica                   |    390 |          | 
-| Russia                       |    780 |          | 
-| Germany                      |   4680 |          |    
-| Switzerland                  |   1560 |          |    
-| Finland                      |    390 |          | 
-| Israel                       |   1560 |          |    
-| Italy                        |   1560 |          |    
-| Bosnia and Herzegovina       |    390 |          | 
-| Singapore                    |    780 |          | 
-| Nigeria                      |    390 |          | 
-| Croatia                      |    390 |          | 
-| Thailand                     |    390 |          | 
-| Denmark                      |    780 |          | 
-| Mexico                       |    390 |          |  
-| Greece                       |    780 |          |  
-| Moldova                      |    390 |          |  
-| Colombia                     |    390 |          |  
-| Georgia                      |    390 |          |  
-| Czech Republic               |    390 |          |  
-| Philippines                  |    390 |          |  
-
+Chart showing gender distribution by country.
+{:.figcaption}
