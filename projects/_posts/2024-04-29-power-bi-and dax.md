@@ -46,3 +46,25 @@ in
     #"APPLY colnames to table"
 ```
 
+I also knew there were issues with the data in that there were a lot of rows with missing values for the Self Employed column. To get an idea of how many rows had missing values by each gender I used the following code to create a table of counts.
+
+```
+EVALUATE
+SUMMARIZE (
+    MentalHealthDataset,
+    ROLLUP ( 'MentalHealthDataset'[Gender] ),
+    "Blanks", COUNTBLANK ( 'MentalHealthDataset'[Self Employed] ),
+    "Non Blanks", CALCULATE (
+            COUNTROWS ( MentalHealthDataset ),
+            NOT ISBLANK ( MentalHealthDataset[Self Employed] )
+        )
+)
+```
+
+This produced a table like this.
+
+| MentalHealthDataset[Gender] | [Blanks] | [Non Blanks] |
+|-----------------------------|----------|--------------|
+| Female                      | 1302     | 52514        |
+| Male                        | 3900     | 239850       |
+|                             | 5202     | 292364       |
