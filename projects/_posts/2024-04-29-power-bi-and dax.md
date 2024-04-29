@@ -32,10 +32,13 @@ I already knew there were formatting issues with the column names as there was a
 I started by selecting a data source for my data and this was using text/csv source. Once the data had been imported, I had to tell Power BI that the first row is column header values. From there I had to make changes to the column names and I chose to use Title Capitalisation to keep the column names in the same format. It is more humanly readable for the user.
 
 I had to transform the data and select the Advanced Editor within Power BI and enter the following code:
+
 ```
 let
     Source = Csv.Document(File.Contents("C:\Users\Ad\Pandas\data\Mental Health Dataset.csv"),[Delimiter=",", Columns=17, Encoding=1252, QuoteStyle=QuoteStyle.None]),
-    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}}),
+    #"Changed Type" = Table.TransformColumnTypes(Source, {
+        {"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}
+    }),
     #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
     #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Timestamp", type text}, {"Gender", type text}, {"Country", type text}, {"Occupation", type text}, {"self_employed", type text}, {"family_history", type text}, {"treatment", type text}, {"Days_Indoors", type text}, {"Growing_Stress", type text}, {"Changes_Habits", type text}, {"Mental_Health_History", type text}, {"Mood_Swings", type text}, {"Coping_Struggles", type text}, {"Work_Interest", type text}, {"Social_Weakness", type text}, {"mental_health_interview", type text}, {"care_options", type text}}),
     #"GET column names" = Table.ColumnNames(#"Changed Type1"),
