@@ -87,3 +87,39 @@ This was achieved by adding a Slicer to the report so when I select a year from 
 
 Slicer.
 {:.figcaption}
+
+### Table
+
+#### Sales by Month
+I wanted to add a table that shows the sales value by month and does a year on year percentage calculation and also a year to date calculation.
+
+I added a table to the report and from the data fields, I selected Sales and Month.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/table-of-sales.png){:.centered loading="lazy"}
+
+Table showing sales by month.
+{:.figcaption}
+
+#### Sales Year on Year
+To add the year on year percentage, I needed to create a new quick measure. 
+
+From the list of calculations, I had to go down to Time Intelligence and choose 'Year-over-year change'.
+
+For the Base value, I had selected Sales and the Date I selected Date from the field options.
+
+After I clicked Add, a new measure was added to the data fields so it could be dragged onto the existing table.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/quick-measure.png){:.centered loading="lazy"}
+
+Quick measure.
+{:.figcaption}
+
+#### Sales Year To Date
+For this step it was very similar to Sales Year on Year with the only difference being that I needed to select 'Year-to-date' from the Time Intelligence option from the Calculations dropdown.
+
+I was then able to drag that onto my table.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/table.png){:.centered loading="lazy"}
+
+Completed table.
+{:.figcaption}
