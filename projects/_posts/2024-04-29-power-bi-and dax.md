@@ -88,7 +88,7 @@ This was achieved by adding a Slicer to the report so when I select a year from 
 Slicer.
 {:.figcaption}
 
-### Table
+### Adding a Table of Sales
 
 #### Sales by Month
 I wanted to add a table that shows the sales value by month and does a year on year percentage calculation and also a year to date calculation.
@@ -122,4 +122,16 @@ I was then able to drag that onto my table.
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/table.png){:.centered loading="lazy"}
 
 Completed table.
+{:.figcaption}
+
+#### Sales by County
+The next visual I wanted on my dashboard was a map which I could select an area and the other charts are updated.
+
+Because my locale was set to United Kingdom and I could see my sales values were in GBP, it made sense that I needed to change the Province column to County. I updated the data source for the customer data and replaced the values in Province with counties in the UK. This would help with the map as the software knows that the counties I'm using are in the UK.
+
+I selected Filled Map as a chart type and dragged the County data field onto the chart. I was able to zoom into the map to select the Devon for example, and I could see all the sales values for Devon get updated in the other charts.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/map.png){:.centered loading="lazy"}
+
+Map showing Devon as selected county.
 {:.figcaption}
