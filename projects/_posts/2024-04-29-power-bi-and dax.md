@@ -64,3 +64,11 @@ Cleanup of column names and replacing values.
 {:.figcaption}
 
 I also removed any columns that I didn't need such as customer data.
+
+## Creating the Dashboard Visualisation
+One of the charts I wanted to display was a sales by category. I chose a chart and selected some columns of data I wanted to plot. I also had to format the chart slightly to show the values and rename the axis labels.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/sales-by-category.png){:.centered loading="lazy"}
+
+Chart showing Sales by Category.
+{:.figcaption}
