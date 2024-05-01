@@ -29,6 +29,7 @@ Before I perform some analysis on my [Mental Health Dataset](https://adam-godfre
 ## Data Preparation
 The first step I had to perform was to import some data and clean it up. I might need to add/remove some columns, change columnn types or even rename column headers.
 
+### Formatting the Sales column
 I noticed from my initial inspection of the data, the Sales column was using an integer data type. I wanted to convert this to a currency format.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/change-type.png){:.centered loading="lazy"}
@@ -36,6 +37,7 @@ I noticed from my initial inspection of the data, the Sales column was using an 
 Converting data types from integer to fixed width decimal number (currency).
 {:.figcaption}
 
+### Creating a Date column for time intelligence
 I also needed a Date column because it is a necessity if I wanted to do any type of time intelligence analysis in Power BI. I had to select the columns in the order I wanted the date column to be formatted as and I merged the columns with a separator. This removed the Day, Month and Year columns and replaced it with a Date column.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/date-column.png){:.centered loading="lazy"}
@@ -50,6 +52,7 @@ For the Date column, I needed to convert that from a text data type to a date da
 Converting data types from text to date.
 {:.figcaption}
 
+### Splitting columns
 Another formatting step was to split the CityProvince column into 2 columns for City and Province. I needed to choose the delimiter to split on and it was easy to see from the data that the province was in brackets so that became my delimiter
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/delimiter.png){:.centered loading="lazy"}
@@ -66,9 +69,21 @@ Cleanup of column names and replacing values.
 I also removed any columns that I didn't need such as customer data.
 
 ## Creating the Dashboard Visualisation
+
+### Sales by Category
 One of the charts I wanted to display was a sales by category. I chose a chart and selected some columns of data I wanted to plot. I also had to format the chart slightly to show the values and rename the axis labels.
 
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/sales-by-category.png){:.centered loading="lazy"}
 
 Chart showing Sales by Category.
+{:.figcaption}
+
+### Adding Time Intelligence
+The chart is okay if I wanted to view all the data vy category but I wanted to be able to select a year and see the chart update.
+
+This was achieved by adding a Slicer to the report so when I select a year from the slicer, the chart is updated automaticlly. For the slicer, I had to drill down into the Date heirachy and select Year. I also changed the slicer from the default slider to a dropdown.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/slicer.png){:.centered loading="lazy"}
+
+Slicer.
 {:.figcaption}
