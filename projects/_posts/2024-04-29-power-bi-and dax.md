@@ -124,7 +124,7 @@ I was then able to drag that onto my table.
 Completed table.
 {:.figcaption}
 
-#### Sales by County
+### Sales by County
 The next visual I wanted on my dashboard was a map which I could select an area and the other charts are updated.
 
 Because my locale was set to United Kingdom and I could see my sales values were in GBP, it made sense that I needed to change the Province column to County. I updated the data source for the customer data and replaced the values in Province with counties in the UK. This would help with the map as the software knows that the counties I'm using are in the UK.
@@ -134,4 +134,26 @@ I selected Filled Map as a chart type and dragged the County data field onto the
 ![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/map.png){:.centered loading="lazy"}
 
 Map showing Devon as selected county.
+{:.figcaption}
+
+### Quantity by Month
+I wanted to display a visual that shows the quantity sold by month. I added a line chart to the dashboard and select the Month for the X-axis and Quantity for the Y-axis.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/line-chart.png){:.centered loading="lazy"}
+
+Line chart showing quantity sold by month.
+{:.figcaption}
+
+### KPI
+The last visual I wanted to see was a KPI. I chose to add the sum of sales by quantity.  By selecting a different category, this chart updates with the sales by quantity using the category as a filter.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/KPI.png){:.centered loading="lazy"}
+
+KPI showing Sales by Quantity.
+{:.figcaption}
+
+### My Completed Dashboard
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/dashboard.png){:.centered loading="lazy"}
+
+Finished dashboard.
 {:.figcaption}
