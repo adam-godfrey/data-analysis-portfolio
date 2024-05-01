@@ -16,7 +16,7 @@ permalink: /projects/2024-04-29-power-bi-and-dax/
 {:toc}
 
 ## Introduction
-After completing my initial analysis using [Python](https://www.python.org/) and [Pandas](https://pandas.pydata.org/), I went on to explore other toold used for Data Analytics.
+After completing my initial analysis using [Python](https://www.python.org/) and [Pandas](https://pandas.pydata.org/), I went on to explore other tools used for Data Analytics.
 
 I found a lot of businesses use [Microsoft Power BI](https://app.powerbi.com/) for their business intelligence and thought I would investigate this further. Upon initial inspection, I found that some of the syntax for creating queries on the data is also used in Microsoft Excel 2016 onwards. Already having used Excel quite extensively in previous roles, I decided to learn other techniques for data analytics and business intelligence using Power BI.
 
@@ -24,86 +24,43 @@ A big part of Power BI that I found the most interesting and is also used in Exc
 
 > Data Analysis Expressions (DAX) is a formula expression language used in Analysis Services, Power BI, and Power Pivot in Excel. DAX formulas include functions, operators, and values to perform advanced calculations and queries on data in related tables and columns in tabular data models.
 
+Before I perform some analysis on my [Mental Health Dataset](https://adam-godfrey.github.io/data-analysis-portfolio/projects/2024-04-06-mental-health/), I wanted to familarise myself with Power BI and the reports and visualisations I can create using this software. For this section I got through the steps I used to create a dashboard showing some visualisations.
+
 ## Data Preparation
-Having already completed an [analysis](https://adam-godfrey.github.io/data-analysis-portfolio/projects/2024-04-06-mental-health/) on a [dataset](https://www.kaggle.com/datasets/bhavikjikadara/mental-health-dataset "Your home for data science"), I wanted to use the same dataset to see the difference in visualisations.
+The first step I had to perform was to import some data and clean it up. I might need to add/remove some columns, change columnn types or even rename column headers.
 
-I already knew there were formatting issues with the column names as there was a mixture of title case, unserscores etc and I wanted to tidy this up before I start any analysis on the data.
+I noticed from my initial inspection of the data, the Sales column was using an integer data type. I wanted to convert this to a currency format.
 
-I started by selecting a data source for my data and this was using text/csv source. Once the data had been imported, I had to tell Power BI that the first row is column header values. From there I had to make changes to the column names and I chose to use Title Capitalisation to keep the column names in the same format. It is more humanly readable for the user.
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/change-type.png){:.centered loading="lazy"}
 
-I had to transform the data and select the Advanced Editor within Power BI and enter the following code:
-
-```
-let
-    Source = Csv.Document(File.Contents("C:\Users\Ad\Pandas\data\Mental Health Dataset.csv"),[Delimiter=",", Columns=17, Encoding=1252, QuoteStyle=QuoteStyle.None]),
-    #"Changed Type" = Table.TransformColumnTypes(Source, {
-        {"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}
-    }),
-    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
-    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers", {
-        {"Timestamp", type text}, {"Gender", type text}, {"Country", type text}, {"Occupation", type text}, {"self_employed", type text}, {"family_history", type text}, {"treatment", type text}, {"Days_Indoors", type text}, {"Growing_Stress", type text}, {"Changes_Habits", type text}, {"Mental_Health_History", type text}, {"Mood_Swings", type text}, {"Coping_Struggles", type text}, {"Work_Interest", type text}, {"Social_Weakness", type text}, {"mental_health_interview", type text}, {"care_options", type text}
-    }),
-    #"GET column names" = Table.ColumnNames(#"Changed Type1"),
-    #"REPLACE underscore in colnames" = List.Transform(#"GET column names", each Text.Replace(_, "_", " ")),
-    #"CAPITALIZE first letter in colnames" = List.Transform(#"REPLACE underscore in colnames", each Text.Proper(_)),
-    #"APPLY colnames to table" = Table.RenameColumns(#"Changed Type1",List.Zip({Table.ColumnNames(#"Changed Type1"), #"CAPITALIZE first letter in colnames"}))
-in
-    #"APPLY colnames to table"
-```
-
-I also knew there were issues with the data in that there were a lot of rows with missing values for the Self Employed column. To get an idea of how many rows had missing values by each gender I used the following code to create a table of counts.
-
-```
-EVALUATE
-SUMMARIZE (
-    MentalHealthDataset,
-    ROLLUP ( 'MentalHealthDataset'[Gender] ),
-    "Blanks", COUNTBLANK ( 'MentalHealthDataset'[Self Employed] ) + 0,
-    "Non Blanks", CALCULATE (
-            COUNTROWS ( MentalHealthDataset ),
-            NOT ISBLANK ( MentalHealthDataset[Self Employed] )
-        )
-)
-```
-
-This produced a table like this.
-
-| MentalHealthDataset[Gender] | [Blanks] | [Non Blanks] |
-|-----------------------------|----------|--------------|
-| Female                      | 1302     | 51212        |
-| Male                        | 3900     | 235950       |
-|                             | 5202     | 287162       |
-
-After removing rows that have blank values, I reran the code above and got the following result.
-
-| MentalHealthDataset[Gender] | [Blanks] | [Non Blanks] |
-|-----------------------------|----------|--------------|
-| Female                      |          | 51212        |
-| Male                        |          | 235950       |
-|                             |          | 287162       |
-
-## Data Visualisations
-
-### Distribution of Country
-I already knew from my previous analysis about the country distribution, however I wanted to see if I could visualise this better.
-
-I chose a similar chart and added a card to the chart to show the values. By selecting a country from the chart, the card values update to show the selected country and the gender distribution within that country.
-
-I also added another chart to show the overall gender distribution for each country relative to the gender distribution of the whole dataset which again update to show the selected country.
-
-![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/gender-by-country.png){:.centered loading="lazy"}
-
-Chart showing gender distribution by country.
+Converting data types from integer to fixed width decimal number (currency).
 {:.figcaption}
 
-```html
-DEFINE
-    MEASURE MentalHealthDataset[Male] = CALCULATE ( COUNTROWS ( MentalHealthDataset ), MentalHealthDataset[Gender] = "Male" )
-    MEASURE MentalHealthDataset[Female] = CALCULATE ( COUNTROWS ( MentalHealthDataset ), MentalHealthDataset[Gender] = "Female" )
-EVALUATE
-SUMMARIZECOLUMNS (
-    MentalHealthDataset[Country],
-    "Male", [Male],
-    "Female", [Female]
-)
-```
+I also needed a Date column because it is a necessity if I wanted to do any type of time intelligence analysis in Power BI. I had to select the columns in the order I wanted the date column to be formatted as and I merged the columns with a separator. This removed the Day, Month and Year columns and replaced it with a Date column.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/date-column.png){:.centered loading="lazy"}
+
+Merging columns to create new Date column.
+{:.figcaption}
+
+For the Date column, I needed to convert that from a text data type to a date data type.
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/date-type.png){:.centered loading="lazy"}
+
+Converting data types from text to date.
+{:.figcaption}
+
+Another formatting step was to split the CityProvince column into 2 columns for City and Province. I needed to choose the delimiter to split on and it was easy to see from the data that the province was in brackets so that became my delimiter
+
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/delimiter.png){:.centered loading="lazy"}
+
+Splitting the CityProvince column into separate columns.
+{:.figcaption}
+
+After that was done I needed to rename the columns and also replace the values in the new Province column to remove the closing bracket.
+![Full-width image](/data-analysis-portfolio/assets/img/mental-health/2024-04-29/replace-values.png){:.centered loading="lazy"}
+
+Cleanup of column names and replacing values.
+{:.figcaption}
+
+I also removed any columns that I didn't need such as customer data.
